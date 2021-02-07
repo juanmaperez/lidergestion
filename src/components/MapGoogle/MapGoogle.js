@@ -3,7 +3,6 @@ import styled, { keyframes } from "styled-components";
 import GoogleMapReact from "google-map-react";
 
 import { device } from "../../utils";
-import iconPin from "../../assets/image/svg/map-marker.svg";
 
 const keyBounce = keyframes`
 
@@ -41,7 +40,7 @@ const MapStyled = styled.div`
 
 const LocationPin = () => (
   <div className="pin">
-    <img src={iconPin} className="pin-icon" alt="" />
+    <i className="icon icon-pin-3 mr-2 text-bali-gray position-relative" />
   </div>
 );
 

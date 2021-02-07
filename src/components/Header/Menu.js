@@ -119,6 +119,28 @@ const Menu = () => {
             );
           }
         )}
+        <li>
+          <a
+            className="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="form-icon font-size-5">
+              <i className="icon icon-phone-2 font-weight-bold"></i>
+            </span>
+          </a>
+        </li>
+        <li className="nav-item">
+          <a
+            className="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="form-icon font-size-5">
+              <i className="icon icon-email-84 font-weight-bold"></i>
+            </span>
+          </a>
+        </li>
       </ul>
     </>
   );

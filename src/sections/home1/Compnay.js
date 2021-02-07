@@ -13,11 +13,13 @@ import React from "react";
 // import img6 from "../../assets/image/home-4/company-logo/dark-logo-6.png";
 // import imgL6 from "../../assets/image/home-4/company-logo/light-logo-6.png";
 
-import brand1 from "../../assets/image/home-1/company-logo/company-logo-1.png";
-import brand2 from "../../assets/image/home-1/company-logo/company-logo-2.png";
-import brand3 from "../../assets/image/home-1/company-logo/company-logo-3.png";
-import brand4 from "../../assets/image/home-1/company-logo/company-logo-4.png";
-import brand5 from "../../assets/image/home-1/company-logo/company-logo-5.png";
+
+
+import brand1 from "../../assets/image/home-1/company-logo/allianz.png";
+import brand2 from "../../assets/image/home-1/company-logo/generali.png";
+import brand3 from "../../assets/image/home-1/company-logo/zurich.png";
+import brand4 from "../../assets/image/home-1/company-logo/helvetia.png";
+
 
 const SingleBrand = ({image}) => {
   return (
@@ -37,7 +39,10 @@ const Company = ({ className, ...rest }) => {
       brand2,
       brand3,
       brand4,
-      brand5
+      brand2,
+      brand1,
+      brand4,
+      brand3
     ];
   return (
     <>
@@ -48,7 +53,7 @@ const Company = ({ className, ...rest }) => {
             <div className="col-12">
               <div className="mb-lg-8 text-center text-lg-center">
                 <h5 className="font-size-6 font-weight-normal text-bali-gray">
-                  Popular tech companies who are seeking talents in our website
+                  Trabajamos con las mejores compañías de seguros a nivel internacional
                 </h5>
               </div>
             </div>

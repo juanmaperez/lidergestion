@@ -43,7 +43,7 @@ const Header = () => {
         }`}
       >
         <Container fluid={gContext.theme.headerFluid}>
-          <nav className="navbar site-navbar offcanvas-active navbar-expand-lg  px-0">
+          <nav className="navbar site-navbar offcanvas-active navbar-expand-lg px-0">
             {/* <!-- Brand Logo--> */}
             <div className="brand-logo mt-3 mt-md-0">
               <Logo />
@@ -54,12 +54,6 @@ const Header = () => {
                 <Menu />
               </div>
             </div>
-
-            {gContext.theme.headerButton && (
-              <div className="header-btn ml-auto ml-lg-0 d-none d-xs-block">
-                {gContext.theme.headerButton}
-              </div>
-            )}
 
             <ToggleButton
               className={`navbar-toggler btn-close-off-canvas ml-3 ${

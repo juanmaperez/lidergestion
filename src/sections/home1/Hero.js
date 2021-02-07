@@ -5,10 +5,12 @@ import imgA from "../../assets/image/home-1/png/arrow-down-big.png";
 import backgroundImage from "../../assets/image/home-1/jpg/hero-bg-1.jpg";
 
 const defaultOptions = [
-  { value: "NY", label: "New York" },
-  { value: "SI", label: "Singapore" },
-  { value: "LN", label: "London" },
-  { value: "DH", label: "Dhaka" },
+  { value: "coche", label: "Seguro de coches" },
+  { value: "salud", label: "Seguro de salud" },
+  { value: "vida", label: "Seguro de vida" },
+  { value: "hogar", label: "Seguro de hogar" },
+  { value: "viajes", label: "Seguro de viajes" },
+  { value: "impago", label: "Seguro de impago" },
 ];
 
 const Hero = ({ className, ...rest }) => {
@@ -21,15 +23,14 @@ const Hero = ({ className, ...rest }) => {
         >
           <div className="container">
             <div className="row">
-              <div className="col-xl-6 col-lg-7 col-md-8">
+              <div className="col-xl-7 col-lg-7 col-md-8">
                 <div className="dark-mode-texts">
                   <h1 className="font-size-12 mb-8">
-                    Join the most popular tech companies.
+                    Líderes en gestión de seguros.
                   </h1>
                   <p className="font-size-7 mb-0 text-white">
-                    We’ve helped over 2,500 job seekers to get into{" "}
-                    <br className="d-none d-md-block" /> the most popular tech
-                    teams.
+                    Hemos ayudado a miles de familias a encontrar{" "}
+                    <br className="d-none d-md-block" /> los seguros que mejor se ajustan a sus necesidades.
                   </p>
                   <Link className="pt-11" href="/#">
                     <img src={imgA} alt="" />
@@ -53,10 +54,21 @@ const Hero = ({ className, ...rest }) => {
                             className="form-control focus-reset pl-13 pr-10 pr-lg-0 border-0 w-100 font-size-5 text-bali-gray py-10 py-xs-5 py-lg-13 py-lg-0"
                             type="text"
                             id="keyword"
-                            placeholder="Try “Software Developer”"
+                            placeholder="Nombre"
                           />
                           <span className="form-icon font-size-5 absolute-top-left">
-                            <i className="icon icon-zoom-2 text-bali-gray font-weight-bold"></i>
+                            <i className="icon icon-single-02-2 text-bali-gray font-weight-bold"></i>
+                          </span>
+                        </div>
+                        <div className="form-group mb-0 focus-reset w-100 w-lg-50 text-bali-gray position-relative d-flex align-items-center">
+                          <input
+                            className="form-control focus-reset pl-13 pr-10 pr-lg-0 border-0 w-100 font-size-5 text-bali-gray py-10 py-xs-5 py-lg-13 py-lg-0"
+                            type="text"
+                            id="keyword"
+                            placeholder="Teléfono"
+                          />
+                          <span className="form-icon font-size-5 absolute-top-left">
+                            <i className="icon icon-phone-2 text-bali-gray font-weight-bold"></i>
                           </span>
                         </div>
                         {/* <!-- .select-city starts --> */}
@@ -70,15 +82,13 @@ const Hero = ({ className, ...rest }) => {
                             `}
                           />
 
-                          <span className="form-icon font-size-5 absolute-top-left">
-                            <i className="icon icon-pin-3 text-bali-gray font-weight-bold"></i>
-                          </span>
+  
                         </div>
                         {/* <!-- ./select-city ends --> */}
                       </div>
                       <div className="button-block">
                         <button className="btn btn-primary line-height-reset btn-hero-btn rounded-0 w-100 w-lg-inherit font-weight-medium">
-                          Search Job
+                          Pide información
                         </button>
                       </div>
                     </div>

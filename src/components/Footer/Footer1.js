@@ -7,7 +7,7 @@ import imgLW from "../../assets/image/logo-main-white.png";
 const Footer = ({ className, ...rest }) => {
   return (
     <>
-      <div className={`bg-default-1 pb-13 pb-lg-10 ${className}`} {...rest}>
+      <div className={`pb-13 pb-lg-10 ${className}`} {...rest}>
         <div className="container">
           <hr className="border-top border-default-color-2 m-0 p-0" />
           <div
@@ -30,8 +30,14 @@ const Footer = ({ className, ...rest }) => {
                   </Link>
                 </div>
                 <p className="font-size-5 line-height-28 mb-0">
-                  Finity has a collection of latest 2,500 jobs to join next
-                  companies.
+                  Plaza Santa Ana Nº 11 - LOCAL 5 <br/> 41900 Camas.Sevilla
+                </p>
+  
+                <p className="font-size-5 line-height-28 mb-0">
+                  Telefonos: <br /> 95 598 19 49 <br/> 625 036 750 <br/> 655 927 366
+                </p>
+                <p className="font-size-5 line-height-28 mb-0">
+                  Email: lidergestion10@hotmail.com
                 </p>
               </div>
             </div>
@@ -41,7 +47,7 @@ const Footer = ({ className, ...rest }) => {
                 <div className="col-md-4 col-xs-6">
                   <div className="mb-10 mb-lg-0">
                     <h4 className="font-size-6 font-weight-medium mb-10">
-                      Community
+                      Social
                     </h4>
                     <ul className="list-unstyled">
                       <li className="mb-7">
@@ -49,7 +55,7 @@ const Footer = ({ className, ...rest }) => {
                           to="/#"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
-                          For Talents
+                          Facebook
                         </Link>
                       </li>
                       <li className="mb-7">
@@ -57,23 +63,7 @@ const Footer = ({ className, ...rest }) => {
                           to="/#"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
-                          For Companies
-                        </Link>
-                      </li>
-                      <li className="mb-7">
-                        <Link
-                          to="/#"
-                          className="font-size-5 text-stone gr-hover-text-primary"
-                        >
-                          Facebook Group
-                        </Link>
-                      </li>
-                      <li className="mb-7">
-                        <Link
-                          to="/#"
-                          className="font-size-5 text-stone gr-hover-text-primary"
-                        >
-                          FAQ
+                          Google
                         </Link>
                       </li>
                     </ul>
@@ -84,7 +74,7 @@ const Footer = ({ className, ...rest }) => {
                 <div className="col-md-4 col-xs-6">
                   <div className="mb-10 mb-lg-0">
                     <h4 className="font-size-6 font-weight-medium mb-10">
-                      About us
+                      Seguros
                     </h4>
                     <ul className="list-unstyled">
                       <li className="mb-7">
@@ -92,7 +82,7 @@ const Footer = ({ className, ...rest }) => {
                           to="/#"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
-                          Meet the Team
+                          Seguros de coche
                         </Link>
                       </li>
                       <li className="mb-7">
@@ -100,7 +90,7 @@ const Footer = ({ className, ...rest }) => {
                           to="/#"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
-                          Our Story
+                          Seguros de hogar
                         </Link>
                       </li>
                       <li className="mb-7">
@@ -108,7 +98,7 @@ const Footer = ({ className, ...rest }) => {
                           to="/#"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
-                          Career
+                          Seguros de salud
                         </Link>
                       </li>
                     </ul>
@@ -119,7 +109,7 @@ const Footer = ({ className, ...rest }) => {
                 <div className="col-md-4 col-xs-6">
                   <div className="mb-10 mb-lg-0">
                     <h4 className="font-size-6 font-weight-medium mb-10">
-                      Useful
+                      Más información
                     </h4>
                     <ul className="list-unstyled">
                       <li className="mb-7">
@@ -127,7 +117,7 @@ const Footer = ({ className, ...rest }) => {
                           to="/#"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
-                          For Talents
+                          Contacto
                         </Link>
                       </li>
                       <li className="mb-7">
@@ -135,7 +125,7 @@ const Footer = ({ className, ...rest }) => {
                           to="/#"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
-                          For Companies
+                          Preguntas frequentes
                         </Link>
                       </li>
                       <li className="mb-7">
@@ -143,38 +133,13 @@ const Footer = ({ className, ...rest }) => {
                           to="/#"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
-                          Facebook Group
-                        </Link>
-                      </li>
-                      <li className="mb-7">
-                        <Link
-                          to="/#"
-                          className="font-size-5 text-stone gr-hover-text-primary"
-                        >
-                          FAQ
+                          Blog
                         </Link>
                       </li>
                     </ul>
                   </div>
                 </div>
                 {/* End Single Widgets */}
-              </div>
-            </div>
-          </div>
-          <div className="row align-items-center pt-3 pt-lg-22">
-            <div className="col-md-6 text-center text-md-left">
-              <div className="copyright mb-5">
-                <p className="mb-0 font-size-3 text-stone">
-                  © Finity 2019, All Rights Reserved
-                </p>
-              </div>
-            </div>
-            <div className="col-md-6 text-center text-md-right">
-              <div className="footer-right mb-5">
-                <p className="mb-0 font-size-3 text-stone">
-                  {" "}
-                  Built with love by <Link to="/#">Grayic</Link>
-                </p>
               </div>
             </div>
           </div>

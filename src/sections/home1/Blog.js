@@ -14,7 +14,7 @@ const Blog = ({ className, ...rest }) => {
           {/* <!-- Section Title --> */}
           <div className="mb-10 mb-lg-17">
             <div className="row align-items-center justify-content-center justify-content-lg-start">
-              <div className="col-xl-5 col-lg-6 col-xs-10">
+              <div className="col-xl-8 col-lg-8 col-xs-10">
                 {/* <!-- Section Title --> */}
                 <div
                   className="text-center text-lg-left"
@@ -22,7 +22,7 @@ const Blog = ({ className, ...rest }) => {
                   data-aos-duration="500"
                 >
                   <h2 className="font-size-11 font-weight-medium pr-md-6 pr-lg-9 pr-xl-0 mb-0">
-                    Latest news about job trends
+                    Descubre mucho más sobre seguros en nuestro blog
                   </h2>
                 </div>
                 {/* <!-- End Section Title --> */}
@@ -44,7 +44,7 @@ const Blog = ({ className, ...rest }) => {
                   </div>
                   <div className="mt-8 mt-xs-0">
                     <h4 className="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">
-                      Why freelancers are more interested in Full-time jobs?
+                      Entiende la diferencia entre asegurar el contenido y el continente
                     </h4>
                     <div className="d-flex align-items-center flex-wrap">
                       <span className="text-bali-gray font-size-3 pr-9">
@@ -66,7 +66,7 @@ const Blog = ({ className, ...rest }) => {
                   </div>
                   <div className="mt-8 mt-xs-0">
                     <h4 className="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">
-                      10 resume writing tips to land you next job.
+                      10 destinos donde es recomendable contratar un seguro de viaje.
                     </h4>
                     <div className="d-flex align-items-center flex-wrap">
                       <span className="text-bali-gray font-size-3 pr-9">
@@ -90,7 +90,7 @@ const Blog = ({ className, ...rest }) => {
                   </div>
                   <div className="mt-8 mt-xs-0">
                     <h4 className="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">
-                      Engineering job is becoming more interesting.
+                      Riesgos de conducir el vehículo de terceros sin seguro a tu nombre.
                     </h4>
                     <div className="d-flex align-items-center flex-wrap">
                       <span className="text-bali-gray font-size-3 pr-9">
@@ -112,7 +112,7 @@ const Blog = ({ className, ...rest }) => {
                   </div>
                   <div className="mt-8 mt-xs-0">
                     <h4 className="font-size-8 font-weight-medium text-dark-cloud mb-5 line-height-34">
-                      How to manage your time efficiently to do more.
+                      Debo contratar un seguro de impagos para mi propiedad en alquiler.
                     </h4>
                     <div className="d-flex align-items-center flex-wrap">
                       <span className="text-bali-gray font-size-3 pr-9">
@@ -129,7 +129,7 @@ const Blog = ({ className, ...rest }) => {
               {/* <!-- Btn Section --> */}
               <div className="btn-section text-center mt-10 mt-lg-13">
                 <a className="btn-link gr-hover-text-primary" href="/#">
-                  See all blog posts
+                  ver todos los posts
                 </a>
               </div>
               {/* <!-- End Btn Section --> */}
