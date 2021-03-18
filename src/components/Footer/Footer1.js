@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "gatsby";
 
-import imgLB from "../../assets/image/logo-main-black.png";
-import imgLW from "../../assets/image/logo-main-white.png";
+import imgLB from "../../assets/image/logo_lidergestion-200.svg";
 
 const Footer = ({ className, ...rest }) => {
   return (
@@ -24,7 +23,7 @@ const Footer = ({ className, ...rest }) => {
                     />
                     <img
                       className="dark-version-logo mx-auto mx-0"
-                      src={imgLW}
+                      src={imgLB}
                       alt=""
                     />
                   </Link>

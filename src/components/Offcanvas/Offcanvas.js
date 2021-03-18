@@ -46,8 +46,12 @@ const Drawer = styled.div`
 `;
 
 const LogoContainer = styled.div`
+  max-width: 160px;
   font-weight: 600;
   font-size: 1.25rem;
+  img {
+    max-width: 100%;
+  }
 `;
 
 const CloseWrapper = styled.div`
@@ -102,7 +106,7 @@ const Offcanvas = ({ show, onHideOffcanvas, children, ...rest }) => {
           <div className="p-3">
             <div className="mb-3 d-flex align-items-center justify-content-between">
               <LogoContainer>
-                <Logo onClick={onHideOffcanvas} />
+                <Logo width="100" onClick={onHideOffcanvas} />
               </LogoContainer>
               <CloseButton onClick={onHideOffcanvas} />
             </div>
