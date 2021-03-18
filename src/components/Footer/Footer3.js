@@ -145,9 +145,9 @@ const Footer = ({ className, ...rest }) => {
                       <Link
                         to="/#"
                         className="font-size-5 d-block text-golden-yellow mb-0"
-                        href="mailto:info@finity.com"
+                        href="mailto:lidergestion10@gmail.com"
                       >
-                        info@finity.com
+                        lidergestion10@gmail.com
                       </Link>
                     </div>
                   </div>

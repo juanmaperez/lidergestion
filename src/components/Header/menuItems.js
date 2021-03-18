@@ -3,12 +3,12 @@ export const menuItems = [
            name: "seguros",
            label: "Seguros",
            items: [
-             { name: "coche", label: "Seguro de coches" },
-             { name: "salud", label: "Seguro de salud" },
-             { name: "vida", label: "Seguro de vida" },
-             { name: "hogar", label: "Seguro de hogar" },
-             { name: "viajes", label: "Seguro de viajes" },
-             { name: "impago", label: "Seguro de impago" },
+             { name: "coche", label: "Coche" },
+             { name: "salud", label: "Salud" },
+             { name: "vida", label: "Vida" },
+             { name: "hogar", label: "Hogar" },
+             { name: "viajes", label: "Viajes" },
+             { name: "impago", label: "Impago" },
 
            ],
          },

@@ -45,8 +45,8 @@ const Header = () => {
         <Container fluid={gContext.theme.headerFluid}>
           <nav className="navbar site-navbar offcanvas-active navbar-expand-lg px-0">
             {/* <!-- Brand Logo--> */}
-            <div className="brand-logo mt-3 mt-md-0">
-              <Logo />
+            <div className="brand-logo mt-2 mt-md-0">
+              <Logo  />
             </div>
 
             <div className="collapse navbar-collapse">

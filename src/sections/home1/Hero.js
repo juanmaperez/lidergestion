@@ -5,12 +5,13 @@ import imgA from "../../assets/image/home-1/png/arrow-down-big.png";
 import backgroundImage from "../../assets/image/home-1/jpg/hero-bg-1.jpg";
 
 const defaultOptions = [
-  { value: "coche", label: "Seguro de coches" },
+  { value: "coche", label: "Seguro de coche" },
   { value: "salud", label: "Seguro de salud" },
   { value: "vida", label: "Seguro de vida" },
   { value: "hogar", label: "Seguro de hogar" },
   { value: "viajes", label: "Seguro de viajes" },
   { value: "impago", label: "Seguro de impago" },
+  { value: "otros", label: "Otros" },
 ];
 
 const Hero = ({ className, ...rest }) => {
@@ -29,8 +30,8 @@ const Hero = ({ className, ...rest }) => {
                     Líderes en gestión de seguros.
                   </h1>
                   <p className="font-size-7 mb-0 text-white">
-                    Hemos ayudado a miles de familias a encontrar{" "}
-                    <br className="d-none d-md-block" /> los seguros que mejor se ajustan a sus necesidades.
+                    Los mejores precios en seguros de Sevilla{" "}
+                    <br className="d-none d-md-block" /> Pide un presupuesto con nosotros.
                   </p>
                   <Link className="pt-11" href="/#">
                     <img src={imgA} alt="" />

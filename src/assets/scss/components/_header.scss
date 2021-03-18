@@ -217,12 +217,30 @@
       }
 
       .brand-logo {
+        img { width: 100%; }
+
+        @include mobile-lg {
+          max-width: 140px;
+        }
+
+       @include mobile-xs {
+          max-width: 140px;
+        }
+
+        @include tablet {
+          max-width: 150px;
+        }
+
         @include desktops {
+          min-width: 160px;
           order: 1;
           flex: 0 0 10%;
           text-align: left;
           margin-top: 10px;
         }
+      
+
+    
       }
 
       .header-btn {
