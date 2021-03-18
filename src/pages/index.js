@@ -18,7 +18,7 @@ const IndexPage = () => {
       <PageWrapper>
         <Hero className="position-relative z-index-1" />
         <Company className="bg-default-1 pt-13 pt-md-17 pt-lg-24 pb-13 pb-md-14 pb-lg-23" />
-        <Insurances className="pt-lg-19 pb-12 pb-lg-17" />
+        <Insurances className="bg-default-1 pt-lg-19 pb-12 pb-lg-17" />
 
         {/* <Categories className="bg-default-1 pt-lg-13 pb-md-7 pb-lg-11 position-relative" /> */}
         <Content2 className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-30" />
