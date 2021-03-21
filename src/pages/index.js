@@ -1,14 +1,11 @@
 import React from "react";
-
+import { graphql } from "gatsby"
 import PageWrapper from "../components/PageWrapper";
 import Hero from "../sections/home1/Hero";
 import Company from "../sections/home1/Compnay";
-import Categories from "../sections/home1/Categories";
 import Testimonial from "../sections/home1/Testimonial";
-
 import Content2 from "../sections/home1/Content2";
 import Blog from "../sections/home1/Blog";
-// import Section from "../layout/Section";
 import Insurances from "../sections/home1/Insurances";
 
 
@@ -28,4 +25,24 @@ const IndexPage = () => {
     </>
   );
 };
+
+// export const homeQuery = graphql`
+//   query {
+//     page(id: "cG9zdDoxMzI") {
+//       sections {
+//         blocks {
+//           ... on Page_Sections_Blocks_Hero {
+//             fieldGroupName
+//             subtitle
+//             title
+//             textColor
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
+
+
+
 export default IndexPage;
