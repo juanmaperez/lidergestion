@@ -8,6 +8,7 @@ import imgP from "../../assets/image/home-2/png/patterns-dot-green.png";
 import imgH from "../../assets/image/home-2/png/right-circlehalf-shape.png";
 
 const Content2 = ({ className, ...rest }) => {
+  const { title, highlight: highlights } = rest
   const contentWidgetData = [
     {
       icon: img1,
@@ -37,18 +38,18 @@ const Content2 = ({ className, ...rest }) => {
               data-aos-delay={500}
               data-aos-once="true"
             >
-              <h2 className="font-size-11">Atención <br/>al cliente.</h2>
+              <h2 className="font-size-11">{ title }</h2>
               <ul className="list-unstyled mt-9 mt-lg-14">
-                {contentWidgetData.map(({ icon, title, text }, index) => {
+                { highlights.map(({ icon, title, description }) => {
                   return (
-                    <li className="media align-items-center mb-12" key={index}>
+                    <li className="media align-items-center mb-12" key={title}>
                       <div className="border square-83 rounded-10 mr-9">
-                        <img src={icon} alt="" />
+                        <img src={icon.sourceUrl} alt={title} />
                       </div>
                       <div className="content">
                         <h5>{title}</h5>
                         <p className="font-size-5 line-height-28 mb-0">
-                          {text}
+                          { description }
                         </p>
                       </div>
                     </li>

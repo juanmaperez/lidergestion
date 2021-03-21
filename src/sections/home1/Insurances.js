@@ -2,34 +2,8 @@ import React, { useRef } from "react";
 import Slider from "react-slick";
 import { Link } from "gatsby";
 
-const items = [
-  {
-    title: "Seguro de coche",
-    image: "icon-roadmap",
-  },
-  {
-    title: "Seguro de salud",
-    image: "icon-heart-2",
-  },
-  {
-    title: "Seguro de vida",
-    image: "icon-leaf-80-2",
-  },
-  {
-    title: "Seguro de hogar",
-    image: "icon-home",
-  },
-  {
-    title: "Seguro de viajes",
-    image: "icon-airplane-2",
-  },
-  {
-    title: "Seguro de impagos",
-    image: "icon-energy",
-  },
-];
-
 const Insurances = ({ className, ...rest }) => {
+  const { title, insurance: insurances } = rest
   const elSlider = useRef();
 
   const slickSettings = {
@@ -83,7 +57,7 @@ const Insurances = ({ className, ...rest }) => {
                     <i className="fa fa-heart text-dodger-blue-2"></i>
                   </span>
                   <h2 className="font-size-11 mb-0">
-                    Los seguros que aman nuestros clientes.
+                    { title }
                   </h2>
                 </div>
               </div>
@@ -129,7 +103,7 @@ const Insurances = ({ className, ...rest }) => {
                     }
                   `}
                 >
-                {items.map(({ link = "/#", title, image }, index) => (
+                {insurances.map(({ link = "/#", name, icon }, index) => (
                   <div className="single-category focus-reset" key={index}>
                     <Link
                         to={link}
@@ -139,11 +113,11 @@ const Insurances = ({ className, ...rest }) => {
                         <div className="bg-white shadow-2 pl-10 pr-5 pt-19 pb-6 min-w-255 min-h-222 gr-hover-1 mb-15 mb-lg-25">
                           <div className="mb-1">
                             <span className="font-size-8">
-                              <i className={`icon ${image} text-blue font-weight-bold`}></i>
+                              <i className={`icon ${icon} text-blue font-weight-bold`}></i>
                             </span>
                           </div>
                           <h4 className="font-size-7 font-weight-medium text-dark-cloud mb-1">
-                            {title}
+                            { name }
                           </h4>
                         </div>
                       </Link>
