@@ -16,7 +16,6 @@ module.exports = {
       options: {
         url: `https://resources.seguroslidergestion.com/graphql`,
         protocol: `https`,
-        useACF: true,
       },
     },
   ],
