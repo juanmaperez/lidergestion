@@ -2,7 +2,6 @@ import React from "react";
 import Select from "../../components/Select";
 import { Link } from "gatsby";
 import imgA from "../../assets/image/home-1/png/arrow-down-big.png";
-import backgroundImage from "../../assets/image/home-1/jpg/hero-bg-1.jpg";
 
 const defaultOptions = [
   { value: "coche", label: "Seguro de coche" },
@@ -15,23 +14,23 @@ const defaultOptions = [
 ];
 
 const Hero = ({ className, ...rest }) => {
+  const { title, subtitle, color, backgroundImage } = rest
   return (
     <div className={className} {...rest}>
       <div className="pt-15 pt-lg-20">
         <div
           className="bg-img-1 bg-images pt-18 pt-lg-25 pt-xl-33 mx-lg-13 mx-xl-15 bg-gradient-2"
-          style={{ backgroundImage: `url(${backgroundImage})` }}
+          style={{ backgroundImage: `url(${backgroundImage.sourceUrl})` }}
         >
           <div className="container">
             <div className="row">
               <div className="col-xl-7 col-lg-7 col-md-8">
                 <div className="dark-mode-texts">
-                  <h1 className="font-size-12 mb-8">
-                    Líderes en gestión de seguros.
+                  <h1 className="font-size-12 mb-8" style={{ color }}>
+                    { title }
                   </h1>
-                  <p className="font-size-7 mb-0 text-white">
-                    Los mejores precios en seguros de Sevilla{" "}
-                    <br className="d-none d-md-block" /> Pide un presupuesto con nosotros.
+                  <p className="font-size-7 mb-0 text-white" style={{ color }}>
+                    { subtitle }
                   </p>
                   <Link className="pt-11" href="/#">
                     <img src={imgA} alt="" />

@@ -9,11 +9,14 @@ import Blog from "../sections/home1/Blog";
 import Insurances from "../sections/home1/Insurances";
 
 
-const IndexPage = () => {
+const IndexPage = ({ data }) => {
+  const { wpPage } = data;
+  const hero = wpPage.sections.blocks.find(block => block.fieldGroupName === "page_Sections_Blocks_Hero")
+
   return (
     <>
       <PageWrapper>
-        <Hero className="position-relative z-index-1" />
+        <Hero { ...hero } className="position-relative z-index-1" />
         <Company className="bg-default-1 pt-13 pt-md-17 pt-lg-24 pb-13 pb-md-14 pb-lg-23" />
         <Insurances className="bg-default-1 pt-lg-19 pb-12 pb-lg-17" />
 
@@ -26,22 +29,26 @@ const IndexPage = () => {
   );
 };
 
-// export const homeQuery = graphql`
-//   query {
-//     page(id: "cG9zdDoxMzI") {
-//       sections {
-//         blocks {
-//           ... on Page_Sections_Blocks_Hero {
-//             fieldGroupName
-//             subtitle
-//             title
-//             textColor
-//           }
-//         }
-//       }
-//     }
-//   }
-// `
+export const homeQuery = graphql`
+  query {
+    wpPage(id: { eq:"cG9zdDoxMzI="}){
+      sections {
+        blocks {
+        ... on WpPage_Sections_Blocks_Hero {
+            fieldGroupName
+            subtitle
+            title
+            textColor
+            backgroundImage {
+              altText
+              sourceUrl
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 
 

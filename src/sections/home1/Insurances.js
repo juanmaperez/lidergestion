@@ -132,7 +132,7 @@ const Insurances = ({ className, ...rest }) => {
                 {items.map(({ link = "/#", title, image }, index) => (
                   <div className="single-category focus-reset" key={index}>
                     <Link
-                        href={link}
+                        to={link}
                         className="single-category mx-9 mx-lg-7 focus-reset slick-slide"
                         tabIndex="-1"
                       >
