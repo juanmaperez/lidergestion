@@ -5,8 +5,10 @@ const PostTemplate = ({ data }) => {
 	const { wpPost } = data;
 	const { title, content, date, tags, featuredImage } = wpPost
 	const imageUrl = featuredImage ? featuredImage.node.sourceUrl : null
-	console.log(imageUrl)
 	const tagNames = tags ? tags.nodes.map(tag => tag.name) : null;
+	const options = React.useRef({ year: 'numeric', month: 'short', day: '2-digit'});
+	
+	const formatDate = new Intl.DateTimeFormat('es-es', options.current).format(new Date(date));
 
 	return (
 		<main className="pt-15 pt-lg-20 pb-13 pb-md-19 pb-lg-27">
@@ -25,10 +27,10 @@ const PostTemplate = ({ data }) => {
 				<div className="row justify-content-center">
 					<div className="col-xl-11">
 						{/* job-details-content */}
-						<div className="text-center pb-0">
+						<div className="text-center pt-5 pb-0">
 							<div className="mb-5 d-inline-flex align-items-center flex-wrap">
 								<span className="d-block d-inline-flex align-items-center mr-sm-6 text-bali-gray">
-									{ date }
+									{ formatDate }
 								</span>
 							</div>
 							<h2 className="font-size-11 font-weight-bold text-center mb-lg-15 mb-0">
@@ -44,7 +46,7 @@ const PostTemplate = ({ data }) => {
 								</div>
 							)}
 						</div>
-						<div className="col-xl-9 col-lg-10 px-xl-0 px-lg-6 px-md-0 px-6 pr-0">
+						<div className="offset-lg-1 col-lg-10 px-xl-0 px-lg-6 px-md-0 px-6 pr-0">
 							<div className="pt-lg-0 pt-10 pl-lg-10 px-xl-15 font-size-5 heading-default-color" dangerouslySetInnerHTML={{__html: content }}>
 							
 							</div>

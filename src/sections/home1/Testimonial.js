@@ -70,7 +70,7 @@ const Testimonial = ({ className, ...rest }) => {
                 {/* Single Testimonial */}
 
                 { testimonials.map(({ name, rating, text, avatar, insurance}) => (
-                  <div className="single-testimoial bg-white border border-default-color-5 rounded-10 pt-5 pb-4 pt-sm-11 pt-md-11 pb-sm-10 pb-md-10 pl-5 pl-sm-11 pl-md-11 pr-6 pr-md-12 mx-md-0 focus-reset">
+                  <div key="text" className="single-testimoial bg-white border border-default-color-5 rounded-10 pt-5 pb-4 pt-sm-11 pt-md-11 pb-sm-10 pb-md-10 pl-5 pl-sm-11 pl-md-11 pr-6 pr-md-12 mx-md-0 focus-reset">
                     <div className="mb-10">
                       <img src={imgRS} alt={rating} />
                     </div>

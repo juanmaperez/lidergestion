@@ -15,26 +15,28 @@ const PageTemplate = ({ data }) => {
   return (
     <>
       <PageWrapper>
-        { wpPage.sections.blocks.map(block => renderComponent(block)) }
-        <Blog className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" />
+        { wpPage.sections.blocks.map((block, index) => renderComponent(block, index)) }
       </PageWrapper>
     </>
   );
 };
 
 
-function renderComponent({ fieldGroupName, ...rest}){
+function renderComponent({ fieldGroupName, ...rest}, index){
   switch(fieldGroupName){
     case "page_Sections_Blocks_Hero":
-      return <Hero { ...rest } className="position-relative z-index-1" />
+      return <Hero { ...rest } className="position-relative z-index-1" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Companies": 
-      return <Company {...rest} className="bg-default-1 pt-13 pt-md-17 pt-lg-24 pb-13 pb-md-14 pb-lg-23" />
+      return <Company {...rest} className="bg-default-1 pt-13 pt-md-17 pt-lg-24 pb-13 pb-md-14 pb-lg-23" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Service":
-      return <Content2 {...rest} className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-30" />
+      return <Content2 {...rest} className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-30" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Insurances":
-      return <Insurances {...rest} className="bg-default-1 pt-lg-19 pb-12 pb-lg-17" />
+      return <Insurances {...rest} className="bg-default-1 pt-lg-19 pb-12 pb-lg-17" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Testimonials":
-      return <Testimonial { ...rest } className="pt-13 pt-md-18 pt-lg-24 pb-13 pb-md-19 pb-lg-28 position-relative" />
+      return <Testimonial { ...rest } className="pt-13 pt-md-18 pt-lg-24 pb-13 pb-md-19 pb-lg-28 position-relative" key={fieldGroupName + index}/>
+		case "page_Sections_Blocks_LatestPosts": 
+			return <Blog { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
+
   }
 }
 
@@ -96,6 +98,12 @@ export const query = graphql`
               title
               description
             }
+          }
+					...on WpPage_Sections_Blocks_LatestPosts {
+						blogurl
+						fieldGroupName
+						title
+						linktext
           }
         }
       }

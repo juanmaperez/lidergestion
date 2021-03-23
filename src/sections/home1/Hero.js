@@ -20,7 +20,7 @@ const Hero = ({ className, ...rest }) => {
       <div className="pt-15 pt-lg-20">
         <div
           className="bg-img-1 bg-images pt-18 pt-lg-25 pt-xl-33 mx-lg-13 mx-xl-15 bg-gradient-2"
-          style={{ backgroundImage: `url(${backgroundImage.sourceUrl})` }}
+          style={{ background: `url(${backgroundImage.sourceUrl})`, backgroundPosition: 'center center', backgroundSize: 'cover'}}
         >
           <div className="container">
             <div className="row">
