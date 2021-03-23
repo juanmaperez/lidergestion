@@ -19,8 +19,6 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   // Define the template to use
   const template = require.resolve(`./src/templates/page.js`)
 
-  console.log(allWpPage)
-
   if (allWpPage.nodes.length) {
     allWpPage.nodes.map(page => {
       actions.createPage({
