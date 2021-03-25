@@ -2,11 +2,12 @@ import React from "react";
 import { graphql } from "gatsby"
 import PageWrapper from "../components/PageWrapper";
 import Hero from "../sections/home1/Hero";
-import Company from "../sections/home1/Compnay";
+import Company from "../sections/home1/Companies";
 import Testimonial from "../sections/home1/Testimonial";
 import Content2 from "../sections/home1/Content2";
 import Blog from "../sections/home1/Blog";
 import Insurances from "../sections/home1/Insurances";
+import ContactForm from "../sections/home1/ContactForm";
 
 
 const PageTemplate = ({ data }) => {
@@ -36,7 +37,8 @@ function renderComponent({ fieldGroupName, ...rest}, index){
       return <Testimonial { ...rest } className="pt-13 pt-md-18 pt-lg-24 pb-13 pb-md-19 pb-lg-28 position-relative" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_LatestPosts": 
 			return <Blog { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
-
+		case "page_Sections_Blocks_Contactform": 
+			return <ContactForm { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
   }
 }
 
@@ -105,6 +107,20 @@ export const query = graphql`
 						title
 						linktext
           }
+					...on WpPage_Sections_Blocks_Contactform {
+						title
+						fieldGroupName
+						subtitle
+						whatsapps {
+							number
+						}
+						phones {
+							phonenumber
+						}
+						emails {
+							address
+						}
+					}
         }
       }
     }

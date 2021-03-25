@@ -57,10 +57,10 @@ const Blog = ({ className, ...rest }) => {
             data-aos="zoom-in"
             data-aos-duration="1200"
           >
-            { allWpPost.nodes.map(({ title, featuredImage, date, slug }) => {
+            { allWpPost.nodes.map(({ id, title, featuredImage, date, slug }) => {
               const formatDate = new Intl.DateTimeFormat('es-es', options.current).format(new Date(date))
               return (
-                <div className="col-lg-6 col-md-10 mt-lg-n23">
+                <div key={id} className="col-lg-6 col-md-10 mt-lg-n23">
                   <Link to={`/blog/${slug}`}>
                     <div className="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1">
                       <div className="mr-10">

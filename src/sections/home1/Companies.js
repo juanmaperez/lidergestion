@@ -13,6 +13,7 @@ const SingleBrand = ({image, name}) => {
 }
 
 const Company = ({ className, ...rest }) => {
+  console.log(companies)
   const { title, company: companies } = rest
   return (
     <>
@@ -31,7 +32,7 @@ const Company = ({ className, ...rest }) => {
           {/* Brand Logos */}
           <div className="brand-logo-small d-flex align-items-center justify-content-center justify-content-lg-between flex-wrap">
             { companies.map(({ name, logo}) => (
-              <SingleBrand image={logo.sourceUrl} name={name} key={name} />
+              <SingleBrand image={logo ? logo.sourceUrl :  null} name={name} key={name} />
             ))}
           </div>
         </div>

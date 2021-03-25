@@ -1,6 +1,7 @@
 import React from "react";
 
-const ContactForm = () => {
+const ContactForm = ({ title, subtitle, emails, whatsapps, phones }) => {
+  console.log(phones, whatsapps)
   return (
     <div className="min-height-100vh d-flex align-items-center pt-23 pt-md-26 pt-lg-30 pb-8 pb-md-12 pb-lg-23">
       <div className="container">
@@ -13,9 +14,9 @@ const ContactForm = () => {
               data-aos-duration={300}
               data-aos-once="true"
             >
-              <h2 className="font-size-11 mb-7">Contact us</h2>
+              <h2 className="font-size-11 mb-7">{ title }</h2>
               <p className="font-size-7 mb-0">
-                Send us a message and we will reply you within 48 hours.
+                { subtitle }
               </p>
             </div>
           </div>
@@ -35,27 +36,31 @@ const ContactForm = () => {
                 <div className="col-lg-6 mb-5 mb-lg-0">
                   <div className="border-md-right border-cornflower-blue">
                     <h4 className="font-size-5 text-default-color font-weight-normal mb-0">
-                      Call us
+                      Llámanos
                     </h4>
-                    <a
-                      className="font-size-7 font-weight-bold heading-default-color"
-                      href="/#"
-                    >
-                      +1-394-429-3985
-                    </a>
+                    { phones && phones.map(({ phonenumber }) => (
+                      <a
+                        className="d-block font-size-5 font-weight-bold heading-default-color"
+                        href="/#"
+                      >
+                        { phonenumber }
+                      </a>
+                    ))}
                   </div>
                 </div>
                 <div className="col-lg-6 mb-5 mb-lg-0">
                   <div className="pl-1 pr-3">
                     <h4 className="font-size-5 text-default-color font-weight-normal mb-0">
-                      Email us
+                      Envía un email
                     </h4>
-                    <a
-                      className="font-size-7 font-weight-bold heading-default-color"
-                      href="/#"
-                    >
-                      support@finity.com
-                    </a>
+                    { emails && emails.map(({ address }) => (
+                      <a
+                        className="d-block font-size-5 font-weight-bold heading-default-color"
+                        href="/#"
+                      >
+                        { address }
+                      </a>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -78,7 +83,7 @@ const ContactForm = () => {
                     type="text"
                     name="name"
                     className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
-                    placeholder="John Doe"
+                    placeholder="Nombre"
                     id="company"
                     required
                   />
@@ -89,7 +94,7 @@ const ContactForm = () => {
                     type="email"
                     name="email"
                     className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
-                    placeholder="Email Address"
+                    placeholder="Email"
                     id="email"
                     required
                   />
@@ -98,10 +103,10 @@ const ContactForm = () => {
                 <div className="form-group mb-7 position-relative">
                   <input
                     type="text"
-                    name="subject"
+                    name="phone"
                     className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
-                    placeholder="Subject"
-                    id="subject"
+                    placeholder="Teléfono"
+                    id="phone"
                     required
                   />
                 </div>
@@ -110,7 +115,7 @@ const ContactForm = () => {
                   <textarea
                     name="message"
                     id="message"
-                    placeholder="Type your message"
+                    placeholder="Deja tu consulta"
                     className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 pt-7 font-size-5 border-default-color"
                     defaultValue={""}
                     required
@@ -122,7 +127,7 @@ const ContactForm = () => {
                     href="/#"
                     className="btn btn-blue-3 h-55 w-100 rounded-4"
                   >
-                    Send
+                    Enviar
                   </button>
                 </div>
               </form>
