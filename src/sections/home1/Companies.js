@@ -13,8 +13,8 @@ const SingleBrand = ({image, name}) => {
 }
 
 const Company = ({ className, ...rest }) => {
-  console.log(companies)
   const { title, company: companies } = rest
+  
   return (
     <>
       {/* Company Section */}

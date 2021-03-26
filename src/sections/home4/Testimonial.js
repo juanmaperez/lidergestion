@@ -1,46 +1,13 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 
-import brand from "../../assets/image/home-4/company-logo/dark-logo-1.png";
-import brandLight from "../../assets/image/home-4/company-logo/dark-logo-1.png";
-import brand2 from "../../assets/image/home-4/company-logo/dark-logo-2.png";
-import brandLight2 from "../../assets/image/home-4/company-logo/dark-logo-2.png";
-import brand3 from "../../assets/image/home-4/company-logo/dark-logo-3.png";
-import brandLight3 from "../../assets/image/home-4/company-logo/dark-logo-3.png";
-import brand4 from "../../assets/image/home-4/company-logo/dark-logo-4.png";
-import brandLight4 from "../../assets/image/home-4/company-logo/dark-logo-4.png";
-import brand5 from "../../assets/image/home-4/company-logo/dark-logo-5.png";
-import brandLight5 from "../../assets/image/home-4/company-logo/dark-logo-5.png";
-
-
 import userImage1 from "../../assets/image/home-4/png/review-meta-img.png";
 import userImage2 from "../../assets/image/home-4/png/review-meta-img-2.png";
 import userImage3 from "../../assets/image/home-4/png/review-meta-img-3.png";
 import userImage4 from "../../assets/image/home-4/png/review-meta-img-4.png";
 import userImage5 from "../../assets/image/home-4/png/review-meta-img-5.png";
 import userImage6 from "../../assets/image/home-4/png/review-meta-img-6.png";
-const sliderNavigationData = [
-  {
-    darkLogo: brand,
-    lightLogo: brandLight,
-  },
-  {
-    darkLogo: brand2,
-    lightLogo: brandLight2,
-  },
-  {
-    darkLogo: brand3,
-    lightLogo: brandLight3,
-  },
-  {
-    darkLogo: brand4,
-    lightLogo: brandLight4,
-  },
-  {
-    darkLogo: brand5,
-    lightLogo: brandLight5,
-  },
-];
+
 
 const mainSliderData = [
   {
