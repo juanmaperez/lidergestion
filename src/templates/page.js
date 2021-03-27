@@ -31,7 +31,7 @@ function renderComponent({ fieldGroupName, ...rest}, index){
     case "page_Sections_Blocks_Companies": 
       return <Company {...rest} className="bg-default-1 pt-13 pt-md-17 pt-lg-24 pb-13 pb-md-14 pb-lg-23" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Service":
-      return <ContentLeft {...rest} className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-30" key={fieldGroupName + index}/>
+      return <ContentLeft {...rest} className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Insurances":
       return <Insurances {...rest} className="bg-default-1 pt-lg-19 pt-10 pb-12 pb-lg-17" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Testimonials":
@@ -43,7 +43,7 @@ function renderComponent({ fieldGroupName, ...rest}, index){
 		case "page_Sections_Blocks_Textcontent":
 			return <TextContent {...rest} className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-30" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Progress":
-			return <Progress {...rest } className="t-21 pt-md-20 pt-lg-24 pb-15 pb-md-19 pb-lg-30" key={fieldGroupName + index}/>
+			return <Progress {...rest } className="t-21 pt-md-20 pt-lg-24 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index}/>
 		
   }
 }

@@ -51,9 +51,11 @@ const Progress = ({ className, ...rest }) => {
                   data-aos-delay="300"
                   data-aos-once="true"
                 >
-                  <div className="square-97 bg-dodger-blue-2 rounded-10 mb-10 shadow-bg-dodger-blue-2 mx-auto mx-md-0">
-                    <img src={steps[0].icon.sourceUrl} alt="" />
-                  </div>
+                  { steps[0].icon && (
+                    <div className="square-97 bg-dodger-blue-2 rounded-10 mb-10 shadow-bg-dodger-blue-2 mx-auto mx-md-0">
+                      <img width="36" src={steps[0].icon.sourceUrl} alt={steps[0].title} />
+                    </div>
+                  )}
                   <div className="">
                     <h3 className="font-size-8 mb-6">{steps[0].title}</h3>
                     <p className="font-size-5 line-height-28 mb-0">
@@ -69,9 +71,9 @@ const Progress = ({ className, ...rest }) => {
                   data-aos-delay="900"
                   data-aos-once="true"
                 >
-                  { steps[2].icon && (
+                  { steps[1].icon && (
                     <div className="square-97 bg-dodger-blue-2 rounded-10 mb-10 shadow-bg-dodger-blue-2 mx-auto mx-md-0">
-                      <img src={steps[1].icon.sourceUrl} alt="" />
+                      <img width="36" src={steps[1].icon.sourceUrl} alt={steps[1].title} />
                     </div>
                   )}
                   <div className="">
@@ -91,7 +93,7 @@ const Progress = ({ className, ...rest }) => {
                 >
                   { steps[2].icon && (
                     <div className="square-97 bg-dodger-blue-2 rounded-10 mb-10 shadow-bg-dodger-blue-2 mx-auto mx-md-0">
-                      <img src={steps[2].icon.sourceUrl} alt="" />
+                      <img width="36" src={steps[2].icon.sourceUrl} alt={steps[2].title} />
                     </div>
                   )}
                   <div className="">

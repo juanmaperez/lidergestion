@@ -119,25 +119,40 @@ const Menu = () => {
             );
           }
         )}
+        <li className="nav-item">
+          <a
+            className="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            href="mailto:lidergestion10@hotmail.com"
+          >
+            <span className="form-icon font-size-5">
+              <i className="icon icon-email-84 font-weight-bold"></i>
+            </span>
+          </a>
+        </li>
         <li>
           <a
             className="nav-link"
             target="_blank"
             rel="noopener noreferrer"
+            href="tel:625036750"
           >
             <span className="form-icon font-size-5">
               <i className="icon icon-phone-2 font-weight-bold"></i>
             </span>
           </a>
         </li>
-        <li className="nav-item">
+   
+        <li>
           <a
             className="nav-link"
             target="_blank"
             rel="noopener noreferrer"
+            href="intent://send/625036750#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"
           >
             <span className="form-icon font-size-5">
-              <i className="icon icon-email-84 font-weight-bold"></i>
+            <i className="whatsapp icon icon-phone-2 font-weight-bold icon-bg-circle bg-green-dark"></i>
             </span>
           </a>
         </li>

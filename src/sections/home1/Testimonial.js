@@ -70,24 +70,24 @@ const Testimonial = ({ className, ...rest }) => {
                 {/* Single Testimonial */}
 
                 { testimonials.map(({ name, rating, text, avatar, insurance}) => (
-                  <div key="text" className="single-testimoial bg-white rounded-10 pt-5 pb-4 pt-sm-11 pt-md-11 pb-sm-10 pb-md-10 pl-5 pl-sm-11 pl-md-11 pr-6 pr-md-12 mx-md-0 focus-reset">
+                  <div key="text" className="single-testimoial bg-white border rounded-10 pt-5 pb-4 pt-sm-11 pt-md-11 pb-sm-10 pb-md-10 pl-5 pl-sm-11 pl-md-11 pr-6 pr-md-12 mx-md-0 focus-reset">
                     <div className="mb-10">
-                      <img src={imgRS} alt={rating} />
+                      <img width="80" src={imgRS} alt={rating} />
                     </div>
-                    <p className="font-size-7 mb-13 pr-sm-5 pr-md-0 pr-xl-4 text-dark-cloud">
+                    <p className="font-size-7 mb-13 pr-sm-5 pr-md-0 text-dark-cloud">
                       { text }
                     </p>
                     <div className="d-flex align-items-center">
                       { avatar && (
                         <div className="mr-6">
-                          <img src={avatar.sourceUrl} alt={name} />
+                          <img width="30" src={avatar.sourceUrl} alt={name} />
                         </div>
                       )}
                       <div className="info">
-                        <h4 className="font-size-7 text-dark-cloud mb-0">
+                        <h4 className="font-size-4 text-dark-cloud mb-0">
                           { name }
                         </h4>
-                        <div className="font-size-5 text-stone mb-0">
+                        <div className="font-size-3 text-stone mb-0">
                           { insurance }
                         </div>
                       </div>

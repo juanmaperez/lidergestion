@@ -15,11 +15,11 @@ export const menuItems = [
          {
            name: "presupuesto",
            label: "Pide presupuesto",
-           isExternal: true,
+           isExternal: false,
          },
          {
            name: "contacto",
            label: "Contacto",
-           isExternal: true,
+           isExternal: false,
          },
        ];

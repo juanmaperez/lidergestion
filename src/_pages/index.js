@@ -66,7 +66,9 @@ export const homeQuery = graphql`
             insurance {
               link
               name
-              icon
+              icon {
+                sourceUrl
+              }
             }
           }
           ...on WpPage_Sections_Blocks_Companies {

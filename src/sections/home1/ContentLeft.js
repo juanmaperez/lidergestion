@@ -25,7 +25,7 @@ const Content2 = ({ className, ...rest }) => {
                     return (
                       <li className="media align-items-center mb-12" key={title}>
                         <div className="border square-83 rounded-10 mr-9">
-                          <img src={icon.sourceUrl} alt={title} />
+                          <img width="36" src={icon.sourceUrl} alt={title} />
                         </div>
                         <div className="content">
                           <h5>{title}</h5>

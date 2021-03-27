@@ -40,14 +40,15 @@ const Footer = ({ className, ...rest }) => {
                     </h4>
                     <ul className="list-unstyled">
                       <li className="mb-7">
-                        <Link
-                          to="/#"
+                        <a
+                          target="blank"
+                          href="https://www.google.com/maps/place/CORREDURIA+DE+SEGUROS+LIDERGESTION/@37.3995173,-6.0373372,17z/data=!4m12!1m6!3m5!1s0xd126d1e81c7783d:0x6dc61e8930284ebf!2sCORREDURIA+DE+SEGUROS+LIDERGESTION!8m2!3d37.3995173!4d-6.0351485!3m4!1s0xd126d1e81c7783d:0x6dc61e8930284ebf!8m2!3d37.3995173!4d-6.0351485"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
                           Plaza Santa Ana <br/>
                           Nº 11 LOCAL 5 <br/> 
                           41900 Camas.Sevilla
-                        </Link>
+                        </a>
                       </li>
                     </ul>
                   </div>
@@ -61,36 +62,36 @@ const Footer = ({ className, ...rest }) => {
                     </h4>
                     <ul className="list-unstyled">
                       <li className="mb-2">
-                        <Link
-                          to="/#"
+                        <a
+                          href="tel:955981949"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
                           95 598 19 49                          
-                        </Link>
+                        </a>
                       </li>
                       <li className="mb-2">
-                        <Link
-                          to="/#"
+                        <a
+                          href="tel:625036750"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
                           625 036 750
-                        </Link>
+                        </a>
                       </li>
                       <li className="mb-2">
-                        <Link
-                          to="/#"
+                        <a
+                          href="tel:655927366"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
                           655 927 366
-                        </Link>
+                        </a>
                       </li>
                       <li className="mb-2">
-                        <Link
-                          to="/#"
+                        <a
+                          href="mailto:lidergestion10@hotmail.com"
                           className="font-size-5 text-stone gr-hover-text-primary"
                         >
                           lidergestion10@hotmail.com
-                        </Link>
+                        </a>
                       </li>
                     </ul>
                   </div>
