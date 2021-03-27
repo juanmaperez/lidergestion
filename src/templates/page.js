@@ -17,7 +17,7 @@ const PageTemplate = ({ data }) => {
   return (
     <>
       <PageWrapper>
-        { wpPage.sections.blocks.map((block, index) => renderComponent(block, index)) }
+        { wpPage.sections.blocks && wpPage.sections.blocks.map((block, index) => renderComponent(block, index)) }
       </PageWrapper>
     </>
   );
