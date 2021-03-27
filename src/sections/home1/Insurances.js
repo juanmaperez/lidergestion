@@ -42,7 +42,7 @@ const Insurances = ({ className, ...rest }) => {
 
   return (
     <>
-      <div className={className} {...rest}>
+      <div className={className}>
         <div className="container">
           {/* <!-- Section Title --> */}
           <div className="mb-8 mb-lg-5">
@@ -111,11 +111,13 @@ const Insurances = ({ className, ...rest }) => {
                         tabIndex="-1"
                       >
                         <div className="bg-white shadow-2 pl-10 pr-5 pt-19 pb-6 min-w-255 min-h-222 gr-hover-1 mb-15 mb-lg-25">
-                          <div className="mb-1">
-                            <span className="font-size-8">
-                              <i className={`icon ${icon} text-blue font-weight-bold`}></i>
-                            </span>
-                          </div>
+                          { icon && (
+                            <div className="mb-1" style={{width: '100px', height: '80px', display: "flex", alignItems: 'flex-end'}}>
+                              <span className="font-size-8">
+                                <img width="100" src={icon.sourceUrl} alt={name}/>
+                              </span>
+                            </div>
+                          )}
                           <h4 className="font-size-7 font-weight-medium text-dark-cloud mb-1">
                             { name }
                           </h4>

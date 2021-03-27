@@ -14,10 +14,12 @@ const ContactForm = ({ title, subtitle, emails, whatsapps, phones }) => {
               data-aos-duration={300}
               data-aos-once="true"
             >
-              <h2 className="font-size-11 mb-7">{ title }</h2>
-              <p className="font-size-7 mb-0">
-                { subtitle }
-              </p>
+              { title && <h2 className="font-size-11 mb-7">{ title }</h2>}
+              { subtitle && (
+                <p className="font-size-7 mb-0">
+                  { subtitle }
+                </p>
+              )}
             </div>
           </div>
         </div>

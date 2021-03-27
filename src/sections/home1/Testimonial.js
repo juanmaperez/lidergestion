@@ -36,7 +36,7 @@ const Testimonial = ({ className, ...rest }) => {
 
   return (
     <>
-      <div className={className} {...rest}>
+      <div className={className} >
         <div className="l6-shape-2 absolute-top-right mt-28 mr-n15">
           <img src={imgCR} alt="reviews" />
         </div>
@@ -74,17 +74,19 @@ const Testimonial = ({ className, ...rest }) => {
                     <div className="mb-10">
                       <img src={imgRS} alt={rating} />
                     </div>
-                    <p className="font-size-8 mb-13 pr-sm-5 pr-md-0 pr-xl-4 text-dark-cloud">
+                    <p className="font-size-7 mb-13 pr-sm-5 pr-md-0 pr-xl-4 text-dark-cloud">
                       { text }
                     </p>
                     <div className="d-flex align-items-center">
-                      <div className="mr-6">
-                        <img src={avatar.sourceUrl} alt={name} />
-                      </div>
+                      { avatar && (
+                        <div className="mr-6">
+                          <img src={avatar.sourceUrl} alt={name} />
+                        </div>
+                      )}
                       <div className="info">
-                        <h5 className="font-size-7 text-dark-cloud mb-0">
+                        <h4 className="font-size-7 text-dark-cloud mb-0">
                           { name }
-                        </h5>
+                        </h4>
                         <div className="font-size-5 text-stone mb-0">
                           { insurance }
                         </div>

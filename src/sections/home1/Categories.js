@@ -9,37 +9,11 @@ import { Container, Row, Col } from "react-bootstrap";
 const SliderStyled = styled(Slider)`
   .slick-slide div {
     &:focus {
-      outline: nnone !important;
+      outline: none !important;
     }
   }
 `;
 
-const items = [
-  {
-    title: "Seguro de coche",
-    image: "icon-roadmap",
-  },
-  {
-    title: "Seguro de salud",
-    image: "icon-heart-2",
-  },
-  {
-    title: "Seguro de vida",
-    image: "icon-leaf-80-2",
-  },
-  {
-    title: "Seguro de hogar",
-    image: "icon-home",
-  },
-  {
-    title: "Seguro de viajes",
-    image: "icon-airplane-2",
-  },
-  {
-    title: "Seguro de impagos",
-    image: "icon-energy",
-  },
-];
 
 const Categories = ({ className, ...rest }) => {
   const elSlider = useRef();

@@ -1,6 +1,5 @@
 import React from "react";
 import Select from "../../components/Select";
-import { Link } from "gatsby";
 import imgA from "../../assets/image/home-1/png/arrow-down-big.png";
 
 const defaultOptions = [
@@ -16,11 +15,11 @@ const defaultOptions = [
 const Hero = ({ className, ...rest }) => {
   const { title, subtitle, color, backgroundImage } = rest
   return (
-    <div className={className} {...rest}>
+    <div className={className}>
       <div className="pt-15 pt-lg-20">
         <div
           className="bg-img-1 bg-images pt-18 pt-lg-25 pt-xl-33 mx-lg-13 mx-xl-15 bg-gradient-2"
-          style={{ background: `url(${backgroundImage.sourceUrl})`, backgroundPosition: 'center center', backgroundSize: 'cover'}}
+          style={{ background: backgroundImage ? `url(${backgroundImage.sourceUrl})` : '#000', backgroundPosition: 'center center', backgroundSize: 'cover'}}
         >
           <div className="container">
             <div className="row">
@@ -32,9 +31,9 @@ const Hero = ({ className, ...rest }) => {
                   <p className="font-size-7 mb-0 text-white" style={{ color }}>
                     { subtitle }
                   </p>
-                  <Link className="pt-11" href="/#">
+                  <span className="pt-11" to="/">
                     <img src={imgA} alt="" />
-                  </Link>
+                  </span>
                 </div>
               </div>
             </div>

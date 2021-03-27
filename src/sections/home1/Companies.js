@@ -18,7 +18,7 @@ const Company = ({ className, ...rest }) => {
   return (
     <>
       {/* Company Section */}
-      <div className={className} {...rest}>
+      <div className={className} >
         <div className="container">
           <div className="row">
             <div className="col-12">
@@ -32,7 +32,7 @@ const Company = ({ className, ...rest }) => {
           {/* Brand Logos */}
           <div className="brand-logo-small d-flex align-items-center justify-content-center justify-content-lg-between flex-wrap">
             { companies.map(({ name, logo}) => (
-              <SingleBrand image={logo ? logo.sourceUrl :  null} name={name} key={name} />
+              logo && <SingleBrand image={logo.sourceUrl} name={name} key={name} />
             ))}
           </div>
         </div>
