@@ -24,9 +24,11 @@ const Content2 = ({ className, ...rest }) => {
                   { highlights.map(({ icon, title, description }) => {
                     return (
                       <li className="media align-items-center mb-12" key={title}>
-                        <div className="border square-83 rounded-10 mr-9">
-                          <img width="36" src={icon.sourceUrl} alt={title} />
-                        </div>
+                        { icon && (
+                          <div className="border square-83 rounded-10 mr-9">
+                            <img width="36" src={icon.sourceUrl} alt={title} />
+                          </div>
+                        )}
                         <div className="content">
                           <h5>{title}</h5>
                           <p className="font-size-5 line-height-28 mb-0">
@@ -49,7 +51,7 @@ const Content2 = ({ className, ...rest }) => {
             >
               <div className="l2-content-image-group-2 mb-10 mb-md-0 rounded-10">
                 <div className="img-1 position-relative text-right rounded-10">
-                  { image && <img className="w-100 w-lg-auto" src={image.sourceUrl} alt={title} />}
+                  { image && <img className="mw-100 w-lg-auto" src={image.sourceUrl} alt={title} />}
                   <div className="img-2">
                     <img className="w-100" src={imgP} alt="" />
                   </div>

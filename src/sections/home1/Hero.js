@@ -13,7 +13,7 @@ const defaultOptions = [
 ];
 
 const Hero = ({ className, ...rest }) => {
-  const { title, subtitle, color, backgroundImage } = rest
+  const { title, subtitle, color, backgroundImage, form } = rest
   return (
     <div className={className}>
       <div className="pt-15 pt-lg-20">
@@ -40,7 +40,8 @@ const Hero = ({ className, ...rest }) => {
             <div className="row">
               <div className="col-xl-12">
                 <div className="mt-13 mt-lg-18 mt-xl-23 w-100 shadow-1">
-                  <form
+                  { form && (
+                    <form
                     action="/"
                     className="search-form-one"
                     data-aos="fade-up"
@@ -92,6 +93,7 @@ const Hero = ({ className, ...rest }) => {
                       </div>
                     </div>
                   </form>
+                  )}
                 </div>
               </div>
             </div>

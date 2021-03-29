@@ -1,7 +1,6 @@
 import React from "react";
 
-const ContactForm = ({ title, subtitle, emails, whatsapps, phones }) => {
-  console.log(phones, whatsapps)
+const ContactForm = ({ title, subtitle, emails, whatsapps, phones, subject = null }) => {
   return (
     <div className="min-height-100vh d-flex align-items-center pt-23 pt-md-26 pt-lg-30 pb-8 pb-md-12 pb-lg-23">
       <div className="container">
@@ -109,6 +108,18 @@ const ContactForm = ({ title, subtitle, emails, whatsapps, phones }) => {
                     className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
                     placeholder="Teléfono"
                     id="phone"
+                    required
+                  />
+                </div>
+
+                <div className="form-group mb-7 position-relative">
+                  <input
+                    type="text"
+                    name="subject"
+                    className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
+                    placeholder="Asunto"
+                    id="subject"
+                    value={subject}
                     required
                   />
                 </div>

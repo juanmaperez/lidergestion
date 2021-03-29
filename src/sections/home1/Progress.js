@@ -5,7 +5,6 @@ import imgA2 from "../../assets/image/home-2/png/arrow-2.png";
 
 const Progress = ({ className, ...rest }) => {
   const { title, steps } = rest
-  console.log(rest)
   return (
     <>
       <div className={className} >

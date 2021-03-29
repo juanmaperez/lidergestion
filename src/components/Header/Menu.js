@@ -1,17 +1,46 @@
 import React from "react";
-import { Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 
-import { menuItems } from "./menuItems";
+const query = graphql`
+  query {
+    wpMenu(id: {eq: "dGVybToxMjQ="}) {
+      id
+      name
+      menuItems {
+        nodes {
+          parentId
+          url
+          label
+          childItems {
+            nodes {
+              url
+              label
+              childItems {
+                nodes {
+                  label
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
 
 const Menu = () => {
+  const { wpMenu } = useStaticQuery(query)
+
   return (
     <>
       <ul className="navbar-nav main-menu d-none d-lg-flex">
-        {menuItems.map(
-          ({ label, isExternal = false, name, items, ...rest }, index) => {
-            const hasSubItems = Array.isArray(items);
+        {wpMenu && wpMenu.menuItems.nodes.filter(({ parentId}) => parentId === null).map(
+          ({ label, isExternal = false, url, childItems, ...rest }, index) => {
+            const hasSubItems = Array.isArray(childItems.nodes) && childItems.nodes.length > 0;
             return (
-              <React.Fragment key={name + index}>
+              <React.Fragment key={label + index}>
                 {hasSubItems ? (
                   <li className="nav-item dropdown" {...rest}>
                     <a
@@ -23,14 +52,14 @@ const Menu = () => {
                       href="/#"
                       onClick={(e) => e.preventDefault()}
                     >
-                      {label}
+                      { label }
                       <i className="icon icon-small-down"></i>
                     </a>
                     <ul className="gr-menu-dropdown dropdown-menu">
-                      {items.map((subItem, indexSub) => {
-                        const hasInnerSubItems = Array.isArray(subItem.items);
+                      { childItems.nodes.map((subItem, indexSub) => {
+                        const hasInnerSubItems = Array.isArray(subItem.childItems.nodes) && subItem.childItems.nodes.length > 0;
                         return (
-                          <React.Fragment key={subItem.name + indexSub}>
+                          <React.Fragment key={subItem.label + indexSub}>
                             {hasInnerSubItems ? (
                               <li className="drop-menu-item dropdown">
                                 <a
@@ -46,22 +75,22 @@ const Menu = () => {
                                   <i className="icon icon-small-down"></i>
                                 </a>
                                 <ul className="gr-menu-dropdown dropdown-menu dropdown-right">
-                                  {subItem.items.map(
+                                  {subItem.childItems.nodes.map(
                                     (itemInner, indexInnerMost) => (
                                       <li
                                         className="drop-menu-item"
-                                        key={itemInner.name + indexInnerMost}
+                                        key={itemInner.label + indexInnerMost}
                                       >
                                         {itemInner.isExternal ? (
                                           <a
-                                            href={`${itemInner.name}`}
+                                            href={`${itemInner.url}`}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                           >
                                             {itemInner.label}
                                           </a>
                                         ) : (
-                                          <Link to={`/${itemInner.name}`}>
+                                          <Link to={`${itemInner.url}`}>
                                             {itemInner.label}
                                           </Link>
                                         )}
@@ -74,14 +103,14 @@ const Menu = () => {
                               <li className="drop-menu-item">
                                 {subItem.isExternal ? (
                                   <a
-                                    href={`${subItem.name}`}
+                                    href={`${subItem.url}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                   >
-                                    {subItem.label}
+                                    {subItem.label} +
                                   </a>
                                 ) : (
-                                  <Link to={`/${subItem.name}`}>
+                                  <Link to={`${subItem.url}`}>
                                     {subItem.label}
                                   </Link>
                                 )}
@@ -97,7 +126,7 @@ const Menu = () => {
                     {isExternal ? (
                       <a
                         className="nav-link"
-                        href={`${name}`}
+                        href={`${url}`}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
@@ -106,7 +135,7 @@ const Menu = () => {
                     ) : (
                       <Link
                         className="nav-link"
-                        to={`/${name}`}
+                        to={`${url}`}
                         role="button"
                         aria-expanded="false"
                       >
@@ -152,7 +181,7 @@ const Menu = () => {
             href="intent://send/625036750#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end"
           >
             <span className="form-icon font-size-5">
-            <i className="whatsapp icon icon-phone-2 font-weight-bold icon-bg-circle bg-green-dark"></i>
+              <i className="whatsapp icon icon-phone-2 font-weight-bold icon-bg-circle bg-green-dark"></i>
             </span>
           </a>
         </li>

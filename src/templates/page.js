@@ -10,21 +10,25 @@ import Insurances from "../sections/home1/Insurances";
 import ContactForm from "../sections/home1/ContactForm";
 import TextContent from '../sections/home1/TextContent'
 import Progress from '../sections/home1/Progress'
+import Faq from '../sections/home1/Faq'
+import Pricing from '../sections/home1/Pricing'
 
-const PageTemplate = ({ data }) => {
+const PageTemplate = ({ data, location}) => {
   const { wpPage } = data;
+  const queryParams = new URLSearchParams(location.search)
+  const subject = queryParams.get("subject")
 
   return (
     <>
       <PageWrapper>
-        { wpPage.sections.blocks && wpPage.sections.blocks.map((block, index) => renderComponent(block, index)) }
+        { wpPage.sections.blocks && wpPage.sections.blocks.map((block, index) => renderComponent(block, index, subject)) }
       </PageWrapper>
     </>
   );
 };
 
 
-function renderComponent({ fieldGroupName, ...rest}, index){
+function renderComponent({ fieldGroupName, ...rest}, index, subject = null){
   switch(fieldGroupName){
     case "page_Sections_Blocks_Hero":
       return <Hero { ...rest } className="position-relative z-index-1" key={fieldGroupName + index}/>
@@ -39,12 +43,17 @@ function renderComponent({ fieldGroupName, ...rest}, index){
 		case "page_Sections_Blocks_LatestPosts": 
 			return <Blog { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Contactform": 
-			return <ContactForm { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
+			return <ContactForm subject={subject} { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Textcontent":
-			return <TextContent {...rest} className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-30" key={fieldGroupName + index}/>
+			return <TextContent {...rest} className="pt-21 pt-md-24 pt-lg-28 pb-15 pb-md-19 pb-lg-30" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Progress":
-			return <Progress {...rest } className="t-21 pt-md-20 pt-lg-24 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index}/>
-		
+			return <Progress {...rest } className="pt-21 pt-md-20 pt-lg-24 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index}/>
+		case "page_Sections_Blocks_Faqs":
+			return <Faq { ...rest } className="pt-21 pt-md-20 pt-lg-28 pb-13 pb-md-18 pb-lg-25" key={fieldGroupName + index} />
+    case "page_Sections_Blocks_Pricing":
+      return <Pricing { ...rest } className="pt-13 pt-lg-25 pb-8 pb-lg-22" key={fieldGroupName + index} />
+    default:
+      return null
   }
 }
 
@@ -58,6 +67,7 @@ export const query = graphql`
             subtitle
             title
             textColor
+            form
             backgroundImage {
               altText
               sourceUrl
@@ -147,6 +157,33 @@ export const query = graphql`
 							}
 						}
 					}
+					... on WpPage_Sections_Blocks_Faqs {
+					  fieldGroupName
+						ordered
+						subtitle
+						title
+						icon {
+							sourceUrl
+						}
+						faqsitems {
+							answer
+							question
+						}
+					}
+          ... on WpPage_Sections_Blocks_Pricing {
+            fieldGroupName
+            title
+            lists {
+              title
+              offer {
+                name
+                price
+                highlights {
+                  title
+                }
+              }
+            }
+          }
         }
       }
     }
