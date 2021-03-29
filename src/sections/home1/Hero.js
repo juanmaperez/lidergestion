@@ -19,7 +19,7 @@ const Hero = ({ className, ...rest }) => {
       <div className="pt-15 pt-lg-20">
         <div
           className="bg-img-1 bg-images pt-18 pt-lg-25 pt-xl-33 mx-lg-13 mx-xl-15 bg-gradient-2"
-          style={{ background: backgroundImage ? `url(${backgroundImage.sourceUrl})` : '#000', backgroundPosition: 'center center', backgroundSize: 'cover'}}
+          style={{ background: backgroundImage ? `url(${backgroundImage.sourceUrl})` : '#000', backgroundPosition: 'bottom center', backgroundSize: 'cover'}}
         >
           <div className="container">
             <div className="row">
@@ -32,7 +32,7 @@ const Hero = ({ className, ...rest }) => {
                     { subtitle }
                   </p>
                   <span className="pt-11" to="/">
-                    <img src={imgA} alt="" />
+                    { color === "#ffffff" && <img src={imgA} alt="arrow" />}
                   </span>
                 </div>
               </div>

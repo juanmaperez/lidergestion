@@ -6,15 +6,17 @@ import Company from "../sections/home1/Companies";
 import Testimonial from "../sections/home1/Testimonial";
 import ContentLeft from "../sections/home1/ContentLeft";
 import Blog from "../sections/home1/Blog";
-import Insurances from "../sections/home1/Insurances";
+import MenuBlocks from "../sections/home1/MenuBlocks";
 import ContactForm from "../sections/home1/ContactForm";
 import TextContent from '../sections/home1/TextContent'
 import Progress from '../sections/home1/Progress'
 import Faq from '../sections/home1/Faq'
 import Pricing from '../sections/home1/Pricing'
+import ContentRight from '../sections/home1/ContentRight'
 
 const PageTemplate = ({ data, location}) => {
   const { wpPage } = data;
+  console.log(location)
   const queryParams = new URLSearchParams(location.search)
   const subject = queryParams.get("subject")
 
@@ -36,8 +38,8 @@ function renderComponent({ fieldGroupName, ...rest}, index, subject = null){
       return <Company {...rest} className="bg-default-1 pt-13 pt-md-17 pt-lg-24 pb-13 pb-md-14 pb-lg-23" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Service":
       return <ContentLeft {...rest} className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index}/>
-    case "page_Sections_Blocks_Insurances":
-      return <Insurances {...rest} className="bg-default-1 pt-lg-19 pt-10 pb-12 pb-lg-17" key={fieldGroupName + index}/>
+    case "page_Sections_Blocks_Menublock":
+      return <MenuBlocks {...rest} className="bg-default-1 pt-lg-19 pt-10 pb-12 pb-lg-17" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Testimonials":
       return <Testimonial { ...rest } className="pt-13 pt-md-18 pt-lg-24 pb-13 pb-md-19 pb-lg-28 position-relative" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_LatestPosts": 
@@ -52,6 +54,8 @@ function renderComponent({ fieldGroupName, ...rest}, index, subject = null){
 			return <Faq { ...rest } className="pt-21 pt-md-20 pt-lg-28 pb-13 pb-md-18 pb-lg-25" key={fieldGroupName + index} />
     case "page_Sections_Blocks_Pricing":
       return <Pricing { ...rest } className="pt-13 pt-lg-25 pb-8 pb-lg-22" key={fieldGroupName + index} />
+    case "page_Sections_Blocks_Contentright":
+      return <ContentRight { ...rest } className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index} />
     default:
       return null
   }
@@ -73,15 +77,20 @@ export const query = graphql`
               sourceUrl
             }
           }
-          ... on WpPage_Sections_Blocks_Insurances {
+          ... on WpPage_Sections_Blocks_Menublock {
             fieldGroupName
             title
-            insurance {
-              link
+            items {
+              page {
+                ... on WpPage {
+                  id
+                  slug
+                }
+              }
+              image {
+                sourceUrl
+              }
               name
-              icon {
-								sourceUrl
-							}
             }
           }
           ...on WpPage_Sections_Blocks_Companies {
@@ -183,6 +192,16 @@ export const query = graphql`
                 }
               }
             }
+          }
+          ... on WpPage_Sections_Blocks_Contentright {
+            content
+            fieldGroupName
+            form
+            image {
+              sourceUrl
+            }
+            short
+            title
           }
         }
       }

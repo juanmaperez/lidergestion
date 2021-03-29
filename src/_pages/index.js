@@ -60,17 +60,7 @@ export const homeQuery = graphql`
               sourceUrl
             }
           }
-          ... on WpPage_Sections_Blocks_Insurances {
-            fieldGroupName
-            title
-            insurance {
-              link
-              name
-              icon {
-                sourceUrl
-              }
-            }
-          }
+
           ...on WpPage_Sections_Blocks_Companies {
             fieldGroupName
             title

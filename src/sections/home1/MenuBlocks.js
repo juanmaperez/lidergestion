@@ -2,8 +2,8 @@ import React, { useRef } from "react";
 import Slider from "react-slick";
 import { Link } from "gatsby";
 
-const Insurances = ({ className, ...rest }) => {
-  const { title, insurance: insurances } = rest
+const MenuBlocks = ({ className, ...rest }) => {
+  const { title, items } = rest
   const elSlider = useRef();
 
   const slickSettings = {
@@ -103,18 +103,18 @@ const Insurances = ({ className, ...rest }) => {
                     }
                   `}
                 >
-                {insurances.map(({ link = "/#", name, icon }, index) => (
+                {items.map(({ page, name, image }, index) => (
                   <div className="single-category focus-reset" key={index}>
                     <Link
-                        to={link}
+                        to={page.slug}
                         className="single-category mx-9 mx-lg-7 focus-reset slick-slide"
                         tabIndex="-1"
                       >
                         <div className="bg-white shadow-2 pl-10 pr-5 pt-19 pb-6 min-w-255 min-h-222 gr-hover-1 mb-15 mb-lg-25">
-                          { icon && (
+                          { image && (
                             <div className="mb-1" style={{width: '200px', height: '90px', display: "flex", alignItems: 'flex-end'}}>
                               <span className="font-size-8">
-                                <img width="200" src={icon.sourceUrl} alt={name}/>
+                                <img width="200" src={image.sourceUrl} alt={name}/>
                               </span>
                             </div>
                           )}
@@ -136,4 +136,4 @@ const Insurances = ({ className, ...rest }) => {
   );
 };
 
-export default Insurances;
+export default MenuBlocks;

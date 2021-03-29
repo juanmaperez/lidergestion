@@ -30,7 +30,7 @@ const Pricing = ({ className, ...rest }) => {
                 data-aos-delay={500}
               >
                 <div className="btn-toggle-square active mx-3 price-deck-trigger rounded-10 bg-golden-yellow">
-                  { Array.isArray(lists) && lists.map((list, index) => (
+                  { lists && lists.length > 1 && lists.map((list, index) => (
                     <button
                       key={list.title}
                       className={`text-break btn-reset focus-reset ${plan ===

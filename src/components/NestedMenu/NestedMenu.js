@@ -2,9 +2,8 @@ import React, { useState, useContext } from "react";
 import styled from "styled-components";
 import { ListGroup, Collapse } from "react-bootstrap";
 import { FaAngleRight, FaAngleDown } from "react-icons/fa";
-import { Link } from "gatsby";
 import GlobalContext from "../../context/GlobalContext";
-import { menuItems } from "../../components/Header/menuItems";
+import { graphql, Link, useStaticQuery } from "gatsby";
 
 const NestedMenuContainer = styled.div`
   a {
@@ -55,23 +54,53 @@ const NestedMenuContainer = styled.div`
   } */
 `;
 
+
+const query = graphql`
+  query {
+    wpMenu(id: {eq: "dGVybToxMjQ="}) {
+      id
+      name
+      menuItems {
+        nodes {
+          parentId
+          url
+          label
+          childItems {
+            nodes {
+              url
+              label
+              childItems {
+                nodes {
+                  label
+                  url
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
+
 const MenuItem = ({
   label,
   isExternal = false,
   name,
-  items,
+  url,
+  childItems,
   depthStep = 20,
   depth = 0,
   ...rest
 }) => {
   const [open, setOpen] = useState(false);
-  const hasSubItems = Array.isArray(items);
+  const hasSubItems = Array.isArray(childItems.nodes) && childItems.nodes.length > 0;
 
   const gContext = useContext(GlobalContext);
 
   return (
     <>
-      {hasSubItems ? (
+      { hasSubItems ? (
         <ListGroup.Item
           {...rest}
           css={`
@@ -97,7 +126,7 @@ const MenuItem = ({
         >
           {isExternal ? (
             <a
-              href={`${name}`}
+              href={`${url}`}
               onClick={() => {
                 if (gContext.visibleOffCanvas) {
                   gContext.toggleOffCanvas();
@@ -108,7 +137,7 @@ const MenuItem = ({
             </a>
           ) : (
             <Link
-              to={`/${name}`}
+              to={`${url}`}
               onClick={() => {
                 if (gContext.visibleOffCanvas) {
                   gContext.toggleOffCanvas();
@@ -124,9 +153,9 @@ const MenuItem = ({
       {hasSubItems ? (
         <Collapse in={open}>
           <ListGroup>
-            {items.map((subItem) => (
+            {childItems.nodes.map((subItem) => (
               <MenuItem
-                key={subItem.name}
+                key={subItem.label}
                 depth={depth + 1}
                 depthStep={depthStep}
                 {...subItem}
@@ -140,10 +169,12 @@ const MenuItem = ({
 };
 
 const NestedMenu = () => {
+  const { wpMenu } = useStaticQuery(query)
+
   return (
     <NestedMenuContainer>
       <ListGroup variant="flush">
-        {menuItems.map((menuItem, index) => (
+        {wpMenu && wpMenu.menuItems.nodes.filter(({ parentId}) => parentId === null).map((menuItem, index) => (
           <MenuItem
             key={`${menuItem.name}${index}`}
             depthStep={20}
