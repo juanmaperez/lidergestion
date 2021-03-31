@@ -4,10 +4,12 @@
   "version": "1.0.0",
   "author": "grayic",
   "dependencies": {
+    "@apollo/client": "^3.0.2",
     "@n8tb1t/use-scroll-position": "^2.0.3",
     "aos": "^3.0.0-beta.6",
     "babel-plugin-styled-components": "^1.12.0",
     "bootstrap": "^4.3.1",
+    "formik": "^2.2.6",
     "gatsby": "^3.0.0",
     "gatsby-image": "^3.1.0",
     "gatsby-plugin-no-index": "^1.0.2",
@@ -21,7 +23,8 @@
     "gatsby-transformer-sharp": "^3.1.0",
     "google-map-react": "^2.1.9",
     "gr-bootstrap-extender": "^1.1.3",
-    "lodash": "^4.17.15",
+    "isomorphic-fetch": "^3.0.0",
+    "lodash": "^4.17.21",
     "node-sass": "^5.0.0",
     "polished": "^4.1.1",
     "react": "^17.0.1",
@@ -40,7 +43,9 @@
     "react-slick": "^0.28.1",
     "slick-carousel": "^1.8.1",
     "styled-components": "^5.2.1",
-    "styled-system": "^5.1.5"
+    "styled-system": "^5.1.5",
+    "uuid": "^8.3.2",
+    "yup": "^0.32.9"
   },
   "keywords": [
     "gatsby"

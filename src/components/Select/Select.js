@@ -54,17 +54,33 @@ const getCustomStyles = (
 
 const SelectStyled = ({
   theme,
-  name = "item",
+  name,
+  value,
+  onChange,
+  onBlur,
   options = defaultOptions,
   ...rest
 }) => {
+  const handleChange = value => {
+    // this is going to call setFieldValue and manually update values.topcis
+    onChange(name, value);
+  };
+
+  const handleBlur = () => {
+    // this is going to call setFieldTouched and manually update touched.topcis
+    onBlur(name, true);
+  };
+
   return (
     <Select
+    	{...rest}
+      value={value}
       styles={getCustomStyles(theme)}
       defaultValue={options[1]}
       name={name}
+      onChange={handleChange}
+      onBlur={handleBlur}
       options={options}
-      {...rest}
     />
   );
 };

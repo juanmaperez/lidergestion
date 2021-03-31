@@ -16,14 +16,14 @@ import ContentRight from '../sections/home1/ContentRight'
 
 const PageTemplate = ({ data, location}) => {
   const { wpPage } = data;
-  console.log(location)
   const queryParams = new URLSearchParams(location.search)
   const subject = queryParams.get("subject")
+  const { pathname } = location
 
   return (
     <>
       <PageWrapper>
-        { wpPage.sections.blocks && wpPage.sections.blocks.map((block, index) => renderComponent(block, index, subject)) }
+        { wpPage.sections.blocks && wpPage.sections.blocks.map((block, index) => renderComponent(block, index, subject || pathname)) }
       </PageWrapper>
     </>
   );
@@ -45,7 +45,7 @@ function renderComponent({ fieldGroupName, ...rest}, index, subject = null){
 		case "page_Sections_Blocks_LatestPosts": 
 			return <Blog { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Contactform": 
-			return <ContactForm subject={subject} { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
+			return <ContactForm subject={subject } { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Textcontent":
 			return <TextContent {...rest} className="pt-21 pt-md-24 pt-lg-28 pb-15 pb-md-19 pb-lg-30" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Progress":
@@ -141,6 +141,7 @@ export const query = graphql`
 						title
 						fieldGroupName
 						subtitle
+            contactdetails
 						whatsapps {
 							number
 						}

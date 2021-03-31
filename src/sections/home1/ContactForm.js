@@ -1,6 +1,67 @@
 import React from "react";
+import { useMutation } from '@apollo/client';
+import { gql } from "graphql-tag"
+import { Formik } from "formik";
+import * as Yup from "yup";
+import { v4 as uuidv4 } from 'uuid';
 
-const ContactForm = ({ title, subtitle, emails, whatsapps, phones, subject = null }) => {
+const DisplayingErrorMessagesSchema = Yup.object().shape({
+  name: Yup.string()
+    .required("Tu nombre es obligatorio"),
+  phone: Yup.number('Debe ser un número').min(99999999).required("El teléfono es obligatorio"),
+  email: Yup.string().email().required('El email es obligatorio'),
+  message: Yup.string().required('Debes dejar alguna consulta')
+});
+
+const sendEmail = gql`
+	mutation SEND_EMAIL($id: String!, $body: String!, $subject: String! ) {
+		sendEmail(
+			input: {
+				to: "lidergestion10@hotmail.com"
+				from: "info@seguroslidergestion.com"
+				subject: $subject
+				body: $body
+				clientMutationId: $id
+	}){
+		origin
+		sent
+		message
+	}
+}`
+
+const ContactForm = ({ title, subtitle, emails, contactdetails, phones, subject }) => {
+  const [sent, setSent] = React.useState(false)
+	const [error, setError] = React.useState(null)
+	const [SEND_EMAIL, {loading}] = useMutation(sendEmail)
+
+  const handleOnSubmit = async ({name, phone, message, email, subject: title }, { resetForm }) => {
+		const subject = `Un cliente pregunta por un ${title}`
+		const body = `
+			<h1>Piden información desde la página o asunto: ${title}</h1>
+			<p>Un nuevo cliente llamado <strong>${name}</strong> quiere más información sobre: <strong>${title}</strong></p>
+			<p>Puedes contactarlo en el número <strong>${phone}</strong> o en el email <strong>${email}</strong>.
+      <p>Esta es la consulta del cliente:</p>
+      <p><strong>${message}</strong></p>
+			<p>Gracias,</p>
+		`
+		const id = uuidv4()
+		const { data } = await SEND_EMAIL({variables: { id, body, subject}})
+		if (data.sendEmail && data.sendEmail.sent) {
+			setError(null)
+			setSent('Gracias por tu mensaje. Nos pondremos pronto en contacto contigo')
+			resetForm({
+				name: '',
+				phone: '',
+				email: '',
+        subject: title,
+        message: ''
+			})
+		} else {
+			setError('Hubo un error enviando el formulario. Inténtalo más tarde')
+			setSent(null)
+		}
+	}
+
   return (
     <div className="min-height-100vh d-flex align-items-center pt-23 pt-md-26 pt-lg-30 pb-8 pb-md-12 pb-lg-23">
       <div className="container">
@@ -26,124 +87,169 @@ const ContactForm = ({ title, subtitle, emails, whatsapps, phones, subject = nul
         {/* Contact Form */}
         <div className="row justify-content-center">
           <div className="col-12">
-            {/* contact details */}
-            <div
-              className="top-contact-info bg-default-1 max-w-540 mx-auto py-10 px-13 rounded-10"
-              data-aos="fade-up"
-              data-aos-duration={600}
-              data-aos-once="true"
-            >
-              <div className="row">
-                <div className="col-lg-6 mb-5 mb-lg-0">
-                  <div className="border-md-right border-cornflower-blue">
-                    <h4 className="font-size-5 text-default-color font-weight-normal mb-0">
-                      Llámanos
-                    </h4>
-                    { phones && phones.map(({ phonenumber }) => (
-                      <a
-                        className="d-block font-size-5 font-weight-bold heading-default-color"
-                        href="/#"
-                      >
-                        { phonenumber }
-                      </a>
-                    ))}
-                  </div>
-                </div>
-                <div className="col-lg-6 mb-5 mb-lg-0">
-                  <div className="pl-1 pr-3">
-                    <h4 className="font-size-5 text-default-color font-weight-normal mb-0">
-                      Envía un email
-                    </h4>
-                    { emails && emails.map(({ address }) => (
-                      <a
-                        className="d-block font-size-5 font-weight-bold heading-default-color"
-                        href="/#"
-                      >
-                        { address }
-                      </a>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-            {/* contact details */}
-            <div className="pt-12 pb-10 max-w-536 mx-auto">
-              <form
-                name="contact"
-                method="POST"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field"
+
+            { contactdetails && (
+              <div
+                className="top-contact-info bg-default-1 max-w-540 mx-auto py-10 px-13 rounded-10"
                 data-aos="fade-up"
-                data-aos-duration={1100}
+                data-aos-duration={600}
                 data-aos-once="true"
               >
-                <input type="hidden" name="form-name" value="contact" />
-                {/* Company Name */}
-                <div className="form-group mb-7 position-relative">
-                  <input
-                    type="text"
-                    name="name"
-                    className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
-                    placeholder="Nombre"
-                    id="company"
-                    required
-                  />
+                <div className="row">
+                  { phones && (
+                    <div className="col-lg-12 mb-5 mb-lg-0">
+                      <div className="border-md-right border-cornflower-blue">
+                        <h4 className="font-size-5 text-default-color font-weight-normal mb-0">
+                          Llámanos
+                        </h4>
+                        { phones.map(({ phonenumber }) => (
+                          <a
+                            className="d-block font-size-5 font-weight-bold heading-default-color"
+                            href="/#"
+                          >
+                            { phonenumber }
+                          </a>
+                        ))}
+                        <p>Contáctanos por whatsapp si lo prefieres</p>
+                      </div>
+                    </div>
+                  )}
+                  {emails && (
+                    <div className="col-lg-12 mb-5 mb-lg-0">
+                      <div className="pl-1 pr-3">
+                        <h4 className="font-size-5 text-default-color font-weight-normal mb-0">
+                          Envía un email
+                        </h4>
+                        { emails.map(({ address }) => (
+                          <a
+                            className="d-block font-size-5 font-weight-bold heading-default-color"
+                            href="/#"
+                          >
+                            { address }
+                          </a>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
-                {/* Email */}
-                <div className="form-group mb-7 position-relative">
-                  <input
-                    type="email"
-                    name="email"
-                    className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
-                    placeholder="Email"
-                    id="email"
-                    required
-                  />
-                </div>
-                {/* Company Name */}
-                <div className="form-group mb-7 position-relative">
-                  <input
-                    type="text"
-                    name="phone"
-                    className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
-                    placeholder="Teléfono"
-                    id="phone"
-                    required
-                  />
-                </div>
+              </div>
+            )}
 
-                <div className="form-group mb-7 position-relative">
-                  <input
-                    type="text"
-                    name="subject"
-                    className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
-                    placeholder="Asunto"
-                    id="subject"
-                    value={subject}
-                    required
-                  />
-                </div>
-                {/* Company Name */}
-                <div className="form-group mb-7 position-relative">
-                  <textarea
-                    name="message"
-                    id="message"
-                    placeholder="Deja tu consulta"
-                    className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 pt-7 font-size-5 border-default-color"
-                    defaultValue={""}
-                    required
-                  />
-                </div>
-                <div className="button">
-                  <button
-                    type="submit"
-                    href="/#"
-                    className="btn btn-blue-3 h-55 w-100 rounded-4"
+            <div className="pt-12 pb-10 max-w-536 mx-auto">
+              <Formik
+                validateOnChange={false}
+                validateOnBlur={false}
+                initialValues={{
+                  name: '',
+                  email: '',
+                  phone: '',
+                  subject: subject, 
+                  message: ''
+                }}
+                validationSchema={DisplayingErrorMessagesSchema}
+                onSubmit={handleOnSubmit}
+              >
+                {({
+                  values,
+                  errors,
+                  handleSubmit,
+                  handleBlur,
+                  handleChange
+                }) => (
+                  <form
+                    name="contact"
+                    data-aos="fade-up"
+                    data-aos-duration={1100}
+                    data-aos-once="true"
+                    onSubmit={handleSubmit}
                   >
-                    Enviar
-                  </button>
+                    <div className="form-group mb-7 position-relative">
+                      <input
+                        type="text"
+                        name="name"
+                        className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
+                        placeholder="Nombre"
+                        id="name"
+                        value={values.name}
+                        onChange={handleChange}
+                        required
+                      />
+                      { errors.name && <span className="alert alert-danger mt-2 p-4">{errors.name}</span>}
+                    </div>
+                    {/* Email */}
+                    <div className="form-group mb-7 position-relative">
+                      <input
+                        type="email"
+                        name="email"
+                        className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
+                        placeholder="Email"
+                        id="email"
+                        value={values.email}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        required
+                      />
+                      { errors.email && <span className="alert alert-danger mt-2 p-4">{errors.email}</span>}
+
+                    </div>
+                    {/* Company Name */}
+                    <div className="form-group mb-7 position-relative">
+                      <input
+                        type="number"
+                        name="phone"
+                        className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
+                        placeholder="Teléfono"
+                        id="phone"
+                        value={values.phone}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        required
+                      />
+                      { errors.phone && <span className="alert alert-danger mt-2 p-4">{errors.phone}</span>}
+                    </div>
+
+                    <div className="form-group mb-7 position-relative">
+                      <input
+                        type="hidden"
+                        name="subject"
+                        className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 font-size-5 border-default-color"
+                        placeholder="Asunto"
+                        id="subject"
+                        value={values.subject}
+                      />
+                      
+                    </div>
+                    {/* Company Name */}
+                    <div className="form-group mb-7 position-relative">
+                      <textarea
+                        name="message"
+                        id="message"
+                        placeholder="Deja tu consulta"
+                        className="form-control form-control-lg bg-white rounded-5 text-dark-cloud text-placeholder-bali-gray pl-7 pt-7 font-size-5 border-default-color"
+                        value={values.message}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        required
+                      />
+                      { errors.message && <span className="alert alert-danger mt-2 p-4">{errors.message}</span>}
+                    </div>
+                    <div className="button">
+                      <button
+                        disabled={loading}
+                        type="submit"
+                        className="btn btn-blue-3 h-55 w-100 rounded-4"
+                      >
+                        Enviar
+                      </button>
+                    </div>
+                  </form>
+                )}
+              </Formik>
+              {(error || sent) && (
+                <div className={`${error ? 'alert-danger': 'alert-success'} alert header__alert mt-2 p-8`}>
+                  { error || sent }
                 </div>
-              </form>
+              )}
             </div>
           </div>
         </div>

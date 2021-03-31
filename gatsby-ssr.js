@@ -8,6 +8,4 @@ export const wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>;
 };
 
-export const wrapRootElement = ({ element }) => (
-  <GlobalProvider>{element}</GlobalProvider>
-);
+export { wrapRootElement } from './src/apollo/wrap-root-element';

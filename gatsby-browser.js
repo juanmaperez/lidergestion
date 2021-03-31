@@ -1,5 +1,4 @@
 import React from "react";
-import { GlobalProvider } from "./src/context/GlobalContext";
 import Layout from "./src/components/Layout";
 
 export const wrapPageElement = ({ element, props }) => {
@@ -8,6 +7,6 @@ export const wrapPageElement = ({ element, props }) => {
   return <Layout {...props}>{element}</Layout>;
 };
 
-export const wrapRootElement = ({ element }) => (
-  <GlobalProvider>{element}</GlobalProvider>
-);
+export { wrapRootElement } from './src/apollo/wrap-root-element';
+
+
