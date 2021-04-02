@@ -45,7 +45,7 @@ const Footer = ({ className, ...rest }) => {
             <div className="col-lg-3 col-md-5 col-md-3">
               <div className="pr-xl-20 mb-11 mb-lg-0">
                 <div className="brand-logo mb-7 mb-lg-8">
-                  <Link to="/#">
+                  <Link to="/">
                     <img
                       className="mx-auto mx-0 light-version-logo default-logo"
                       src={imgLB}

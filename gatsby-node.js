@@ -48,6 +48,27 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
   const { allWpPost } = resultPost.data
 
+  const postsPerPage = 12;
+  const numPages = Math.ceil(allWpPost.nodes.length / postsPerPage)
+
+  const blogTemplate = require.resolve(`./src/templates/blog.js`)
+
+
+  Array.from({ length: numPages }).forEach((_, i) => {
+    actions.createPage({
+      path: i === 0 ? `/blog` : `/blog/${ i + 1}`,
+      component: blogTemplate,
+      context: {
+        limit: postsPerPage,
+        skip: i * postsPerPage,
+        numPages,
+        currentPage: i + 1
+      }
+    })
+  })
+
+
+
   // Define the template to use
   const postTemplate = require.resolve(`./src/templates/post.js`)
 
