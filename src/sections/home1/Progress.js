@@ -51,7 +51,7 @@ const Progress = ({ className, ...rest }) => {
                   data-aos-once="true"
                 >
                   { steps[0].icon && (
-                    <div className="square-97 bg-dodger-blue-2 rounded-10 mb-10 shadow-bg-dodger-blue-2 mx-auto mx-md-0">
+                    <div className="square-97 bg-dodger-blue-2 rounded-10 mb-10 mx-auto mx-md-0">
                       <img width="36" src={steps[0].icon.sourceUrl} alt={steps[0].title} />
                     </div>
                   )}
@@ -71,7 +71,7 @@ const Progress = ({ className, ...rest }) => {
                   data-aos-once="true"
                 >
                   { steps[1].icon && (
-                    <div className="square-97 bg-dodger-blue-2 rounded-10 mb-10 shadow-bg-dodger-blue-2 mx-auto mx-md-0">
+                    <div className="square-97 bg-dodger-blue-2 rounded-10 mb-10 mx-auto mx-md-0">
                       <img width="36" src={steps[1].icon.sourceUrl} alt={steps[1].title} />
                     </div>
                   )}
@@ -91,7 +91,7 @@ const Progress = ({ className, ...rest }) => {
                   data-aos-once="true"
                 >
                   { steps[2].icon && (
-                    <div className="square-97 bg-dodger-blue-2 rounded-10 mb-10 shadow-bg-dodger-blue-2 mx-auto mx-md-0">
+                    <div className="square-97 bg-dodger-blue-2 rounded-10 mb-10  mx-auto mx-md-0">
                       <img width="36" src={steps[2].icon.sourceUrl} alt={steps[2].title} />
                     </div>
                   )}

@@ -35,17 +35,17 @@ function renderComponent({ fieldGroupName, ...rest}, index, subject = null){
     case "page_Sections_Blocks_Hero":
       return <Hero { ...rest } className="position-relative z-index-1" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Companies": 
-      return <Company {...rest} className="bg-default-1 pt-13 pt-md-17 pt-lg-24 pb-13 pb-md-14 pb-lg-23" key={fieldGroupName + index}/>
+      return <Company {...rest} className="pt-13 pt-md-17 pt-lg-24 pb-13 pb-md-14 pb-lg-23" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Service":
       return <ContentLeft {...rest} className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Menublock":
-      return <MenuBlocks {...rest} className="bg-default-1 pt-lg-19 pt-10 pb-12 pb-lg-17" key={fieldGroupName + index}/>
+      return <MenuBlocks {...rest} className="pt-lg-19 pt-10 pb-12 pb-lg-17" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Testimonials":
       return <Testimonial { ...rest } className="pt-13 pt-md-18 pt-lg-24 pb-13 pb-md-19 pb-lg-28 position-relative" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_LatestPosts": 
-			return <Blog { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
+			return <Blog { ...rest } className="pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Contactform": 
-			return <ContactForm subject={subject } { ...rest } className="bg-default-1 pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
+			return <ContactForm subject={subject } { ...rest } className="pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Textcontent":
 			return <TextContent {...rest} className="pt-21 pt-md-24 pt-lg-28 pb-15 pb-md-19 pb-lg-30" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Progress":
