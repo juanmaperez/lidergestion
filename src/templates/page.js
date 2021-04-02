@@ -55,7 +55,7 @@ function renderComponent({ fieldGroupName, ...rest}, index, subject = null){
     case "page_Sections_Blocks_Pricing":
       return <Pricing { ...rest } className="pt-13 pt-lg-25 pb-8 pb-lg-22" key={fieldGroupName + index} />
     case "page_Sections_Blocks_Contentright":
-      return <ContentRight { ...rest } className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index} />
+      return <ContentRight subject={subject } { ...rest } className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index} />
     default:
       return null
   }

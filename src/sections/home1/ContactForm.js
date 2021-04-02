@@ -98,32 +98,32 @@ const ContactForm = ({ title, subtitle, emails, contactdetails, phones, subject 
                 <div className="row">
                   { phones && (
                     <div className="col-lg-12 mb-5 mb-lg-0">
-                      <div className="border-md-right border-cornflower-blue">
-                        <h4 className="font-size-5 text-default-color font-weight-normal mb-0">
+                      <div>
+                        <h4 className="font-size-6 text-default-color font-weight-normal mb-4">
                           Llámanos
                         </h4>
                         { phones.map(({ phonenumber }) => (
                           <a
-                            className="d-block font-size-5 font-weight-bold heading-default-color"
-                            href="/#"
+                            className="d-block font-size-6 font-weight-bold heading-default-color"
+                            href={`tel:${phonenumber}`}
                           >
                             { phonenumber }
                           </a>
                         ))}
-                        <p>Contáctanos por whatsapp si lo prefieres</p>
+                        <p className="font-size-4 mt-4">Contáctanos por whatsapp si lo prefieres</p>
                       </div>
                     </div>
                   )}
                   {emails && (
                     <div className="col-lg-12 mb-5 mb-lg-0">
                       <div className="pl-1 pr-3">
-                        <h4 className="font-size-5 text-default-color font-weight-normal mb-0">
+                        <h4 className="font-size-6 text-default-color font-weight-normal mb-4">
                           Envía un email
                         </h4>
                         { emails.map(({ address }) => (
                           <a
-                            className="d-block font-size-5 font-weight-bold heading-default-color"
-                            href="/#"
+                            className="d-block font-size-6 font-weight-bold heading-default-color"
+                            href={`mailto:${address}`}
                           >
                             { address }
                           </a>

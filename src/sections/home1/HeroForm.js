@@ -133,6 +133,8 @@ export function HeroForm () {
 							{/* <!-- .select-city starts --> */}
 							<div className="form-group border-top-dotted mb-0 w-100 w-lg-50 position-relative pt-5 pb-6 pt-lg-9 pb-lg-10 py-lg-0 d-flex align-items-center">
 								<Select
+									instanceId="insurance"
+									inputId="insurance"
 									value={values.insurance}
 									name="insurance"
 									options={defaultOptions}
@@ -153,9 +155,9 @@ export function HeroForm () {
 							</button>
 						</div>
 					</div>
-					{(errors['name'] || errors['phone'] || error || sent) && (
-						<div className={`${error ? 'alert-danger': 'alert-success'} alert header__alert mt-2 p-8`}>
-							{ errors['name'] || errors['phone'] || error || sent }
+					{(errors.name || errors.phone || error || sent) && (
+						<div className={`${ errors.name || errors.phone || error ? 'alert-danger': 'alert-success'} alert header__alert mt-2 p-8`}>
+							{ errors.name || errors.phone || error || sent }
 						</div>
 					)}
 				</form>

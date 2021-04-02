@@ -88,6 +88,7 @@ const MenuItem = ({
   isExternal = false,
   name,
   url,
+  parentId,
   childItems,
   depthStep = 20,
   depth = 0,
@@ -153,7 +154,7 @@ const MenuItem = ({
       {hasSubItems ? (
         <Collapse in={open}>
           <ListGroup>
-            {childItems.nodes.map((subItem) => (
+            {childItems.nodes.map(({parentId, ...subItem}) => (
               <MenuItem
                 key={subItem.label}
                 depth={depth + 1}
@@ -174,7 +175,7 @@ const NestedMenu = () => {
   return (
     <NestedMenuContainer>
       <ListGroup variant="flush">
-        {wpMenu && wpMenu.menuItems.nodes.filter(({ parentId}) => parentId === null).map((menuItem, index) => (
+        {wpMenu && wpMenu.menuItems.nodes.filter(({ parentId}) => parentId === null).map(({parentId, ...menuItem}, index) => (
           <MenuItem
             key={`${menuItem.name}${index}`}
             depthStep={20}

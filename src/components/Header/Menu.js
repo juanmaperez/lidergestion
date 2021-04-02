@@ -37,7 +37,7 @@ const Menu = () => {
     <>
       <ul className="navbar-nav main-menu d-none d-lg-flex">
         {wpMenu && wpMenu.menuItems.nodes.filter(({ parentId}) => parentId === null).map(
-          ({ label, isExternal = false, url, childItems, ...rest }, index) => {
+          ({ label, isExternal = false, url, childItems, parentId, ...rest }, index) => {
             const hasSubItems = Array.isArray(childItems.nodes) && childItems.nodes.length > 0;
             return (
               <React.Fragment key={label + index}>

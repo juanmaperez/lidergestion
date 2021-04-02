@@ -1,10 +1,62 @@
 import React from "react";
-
 import imgDot from "../../assets/image/home-1/png/dot-bg.png";
+import { useMutation } from '@apollo/client';
+import { gql } from "graphql-tag"
+import { Formik } from "formik";
+import * as Yup from "yup";
+import { v4 as uuidv4 } from 'uuid';
+
+const DisplayingErrorMessagesSchema = Yup.object().shape({
+  email: Yup.string().email()
+    .required("El email es obligatorio")
+});
+
+const sendEmail = gql`
+	mutation SEND_EMAIL($id: String!, $body: String!, $subject: String! ) {
+		sendEmail(
+			input: {
+				to: "lidergestion10@hotmail.com"
+				from: "info@seguroslidergestion.com"
+				subject: $subject
+				body: $body
+				clientMutationId: $id
+	}){
+		origin
+		sent
+		message
+	}
+}`
 
 const ContentRight = ({ className, ...rest }) => {
-  console.log(rest)
-  const { title, short, content, image, form } = rest
+  const [sent, setSent] = React.useState(false)
+  const [error, setError] = React.useState(null)
+  const [SEND_EMAIL, {loading}] = useMutation(sendEmail)
+  
+  const { title, short, content, image, form, subject } = rest
+
+  const handleOnSubmit = async ({ email, subject: title }, { resetForm }) => {
+		const subject = `Un cliente pregunta por un ${title}`
+		const body = `
+			<h1>Piden información desde la página o asunto: ${title}</h1>
+			<p>Un usuario ha pedido información sobre: <strong>${title}</strong></p>
+			<p>Puedes enviarle información a la dirección de email <strong>${email}</strong>.
+			<p>Gracias,</p>
+		`
+		const id = uuidv4()
+		const { data } = await SEND_EMAIL({variables: { id, body, subject}})
+		if (data.sendEmail && data.sendEmail.sent) {
+			setError(null)
+			setSent('Gracias por tu mensaje. Nos pondremos pronto en contacto contigo')
+			resetForm({
+				email: '',
+        subject: title,
+			})
+		} else {
+			setError('Hubo un error enviando el formulario. Inténtalo más tarde')
+			setSent(null)
+		}
+	}
+
   return (
     <>
       <div className={className} >
@@ -52,28 +104,57 @@ const ContentRight = ({ className, ...rest }) => {
                     data-aos-once="true"
                   >
                     <div className="shadow-3 bg-white rounded-0">
-                      <form action="/">
-                        <div className="subscribe-inline-form">
-                          <div className="form-group">
-                            <input
-                              id="subject"
-                              type="number"
-                              className="form-control d-none"
-                              value={ title }
-                            />
-                            <label htmlFor="phone">
-                              <i className="icon icon-phone-2 mb-0 text-bali-gray font-weight-bold" />
-                            </label>
-                            <input
-                              id="phone"
-                              type="number"
-                              className="form-control"
-                              placeholder="Deja tú teléfono"
-                            />
-                          </div>
-                          <button className="btn btn-primary">Te llamamos</button>
-                        </div>
-                      </form>
+                    <Formik
+                      validateOnChange={false}
+                      validateOnBlur={false}
+                      initialValues={{
+                        email: '',
+                        subject: subject, 
+                      }}
+                      validationSchema={DisplayingErrorMessagesSchema}
+                      onSubmit={handleOnSubmit}
+                    >
+                      {({
+                        values,
+                        errors,
+                        handleSubmit,
+                        handleBlur,
+                        handleChange
+                      }) => (
+                          <form onSubmit={handleSubmit}>
+                            <div className="subscribe-inline-form">
+                              <div className="form-group">
+                                <input
+                                  id="subject"
+                                  type="hidden"
+                                  className="form-control"
+                                  value={ values.subject }
+                                />
+                                <label htmlFor="email">
+                                  <i className="icon icon-email-84 mb-0 text-bali-gray font-weight-bold" />
+                                </label>
+                                <input
+                                  id="email"
+                                  type="email"
+                                  values={values.email}
+                                  onBlur={handleBlur}
+                                  onChange={handleChange}
+                                  className="form-control"
+                                  placeholder="Deja tú email"
+                                />
+                              </div>
+                              <button type="submit" disabled={loading} className="btn btn-primary">Enviar</button>
+                            </div>
+                            {(errors.email || error || sent) && (
+                              <div className={`${error || errors.email ? 'alert-danger': 'alert-success'} alert p-8`}>
+                                { errors.email || error || sent }
+                              </div>
+                            )}
+                          </form>
+                        )}
+                        
+                      </Formik>
+                    
                     </div>
                   </div>
                 )}

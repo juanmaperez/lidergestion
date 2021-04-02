@@ -10,7 +10,6 @@ const defaultOptions = [
 ];
 
 const getCustomStyles = (
-  theme,
   accentColor = `#22b0fc`,
   bg = `#fff`,
   border,
@@ -70,7 +69,6 @@ const SelectStyled = ({
     // this is going to call setFieldTouched and manually update touched.topcis
     onBlur(name, true);
   };
-
   return (
     <Select
     	{...rest}
