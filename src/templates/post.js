@@ -5,10 +5,7 @@ const PostTemplate = ({ data }) => {
 	const { wpPost } = data;
 	const { title, content, date, tags, featuredImage } = wpPost
 	const imageUrl = featuredImage ? featuredImage.node.sourceUrl : null
-	const tagNames = tags ? tags.nodes.map(tag => tag.name) : null;
-	const options = React.useRef({ year: 'numeric', month: 'short', day: '2-digit'});
-	
-	const formatDate = new Intl.DateTimeFormat('es-es', options.current).format(new Date(date));
+	const tagNames = tags ? tags.nodes.map(tag => tag.name) : null;	
 
 	return (
 		<main className="pt-15 pt-lg-20 pb-13 pb-md-19 pb-lg-27">
@@ -27,12 +24,7 @@ const PostTemplate = ({ data }) => {
 				<div className="row justify-content-center">
 					<div className="col-xl-11">
 						{/* job-details-content */}
-						<div className="text-center pt-5 pb-0">
-							<div className="mb-5 d-inline-flex align-items-center flex-wrap">
-								<span className="d-block d-inline-flex align-items-center mr-sm-6 text-bali-gray">
-									{ formatDate }
-								</span>
-							</div>
+						<div className="text-center pt-12 pb-0">
 							<h2 className="font-size-11 font-weight-bold text-center mb-lg-15 mb-0">
 								{ title }
 							</h2>

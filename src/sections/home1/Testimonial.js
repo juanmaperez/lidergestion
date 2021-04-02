@@ -72,7 +72,7 @@ const Testimonial = ({ className, ...rest }) => {
                 { testimonials.map(({ name, rating, text, avatar, insurance}) => (
                   <div key="text" className="single-testimoial bg-white border rounded-10 pt-5 pb-4 pt-sm-11 pt-md-11 pb-sm-10 pb-md-10 pl-5 pl-sm-11 pl-md-11 pr-6 pr-md-12 mx-md-0 focus-reset">
                     <div className="mb-10">
-                      <img width="80" src={imgRS} alt={rating} />
+                      <img width="120" src={imgRS} alt={rating} />
                     </div>
                     <p className="font-size-7 mb-13 pr-sm-5 pr-md-0 text-dark-cloud">
                       { text }
@@ -80,7 +80,7 @@ const Testimonial = ({ className, ...rest }) => {
                     <div className="d-flex align-items-center">
                       { avatar && (
                         <div className="mr-6">
-                          <img width="30" src={avatar.sourceUrl} alt={name} />
+                          <img width="40" src={avatar.sourceUrl} alt={name} />
                         </div>
                       )}
                       <div className="info">

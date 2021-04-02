@@ -27,7 +27,6 @@ const query = graphql`
 const Blog = ({ className, ...rest }) => {
   const { title, linkText, blogUrl } = rest
   const { allWpPost } = useStaticQuery(query)
-  const options = React.useRef({ year: 'numeric', month: 'short', day: '2-digit'});
 
   return (
     <>
@@ -59,15 +58,15 @@ const Blog = ({ className, ...rest }) => {
             data-aos="zoom-in"
             data-aos-duration="1200"
           >
-            { allWpPost.nodes.map(({ id, title, featuredImage, date, slug }) => {
-              const formatDate = new Intl.DateTimeFormat('es-es', options.current).format(new Date(date))
+            { allWpPost.nodes
+              .map(({ id, title, featuredImage, slug }) => {
               return (
                 <div key={id} className="col-lg-6 col-md-10 mt-lg-n23">
                   <Link to={`/blog/${slug}`}>
                     <div className="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1">
                       { featuredImage && (
-                        <div className="mr-10">
-                          <img className="square-116" src={ featuredImage ? featuredImage.node.sourceUrl : imgB3} alt="" />
+                        <div className="mr-10 square-116 overflow-hidden">
+                          <img className="mw-100" src={ featuredImage ? featuredImage.node.sourceUrl : imgB3} alt="" />
                         </div>
                       )}
                       <div className="mt-8 mt-xs-0">
@@ -76,11 +75,6 @@ const Blog = ({ className, ...rest }) => {
                             { title }
                           </h4>
                         )}
-                        <div className="d-flex align-items-center flex-wrap">
-                          <span className="text-bali-gray font-size-3 pr-9">
-                            <i className="fa fa-clock mr-2"></i>{ formatDate } 
-                          </span>
-                        </div>
                       </div>
                     </div>
                   </Link>
