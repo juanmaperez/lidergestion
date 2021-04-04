@@ -24,8 +24,7 @@ const query = graphql`
 `
 
 
-const Blog = ({ className, ...rest }) => {
-  const { title, linkText, blogUrl } = rest
+const Blog = ({ className, title, linkText, blogUrl }) => {
   const { allWpPost } = useStaticQuery(query)
 
   return (
@@ -65,8 +64,8 @@ const Blog = ({ className, ...rest }) => {
                   <Link to={`/blog/${slug}`}>
                     <div className="bg-white d-xs-flex align-items-center px-9 py-10 mb-9 shadow-2 gr-hover-1">
                       { featuredImage && (
-                        <div className="mr-10 square-116 overflow-hidden">
-                          <img className="mw-100" src={ featuredImage ? featuredImage.node.sourceUrl : imgB3} alt="" />
+                        <div className="postImage__wrapper mr-10 square-116 overflow-hidden">
+                          <img className="postImage__pic" src={ featuredImage ? featuredImage.node.sourceUrl : imgB3} alt="" />
                         </div>
                       )}
                       <div className="mt-8 mt-xs-0">
@@ -81,7 +80,7 @@ const Blog = ({ className, ...rest }) => {
                 </div>
               )}
             )}
-            <div className="col-lg-6 offset-lg-6 offset-md-1 col-md-10 mt-lg-n23">
+            <div className="col-lg-6 offset-lg-6 offset-md-1 col-md-10 mt-lg-23">
 
               {/* <!-- Btn Section --> */}
               <div className="btn-section text-right mt-10 mt-lg-13">

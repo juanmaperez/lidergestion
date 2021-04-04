@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from 'gatsby'
 
-const Faq = ({className, ...rest}) => {
-  const { title, subtitle, icon, ordered, faqsitems} = rest
+const Faq = ({className, title, subtitle, icon, ordered, faqsitems, fullwidth }) => {
+
   return (
     <div className={className}>
       <div className="container">
@@ -24,7 +24,7 @@ const Faq = ({className, ...rest}) => {
         {/* Faqs */}
         <div className="row justify-content-center">
           {/* Single Faq */}
-          <div className="offset-lg-1 col-lg-10 col-md-10 offset-md-0">
+          <div className={`${ fullwidth ? "col-lg-12" : "offset-lg-1 col-lg-10"} col-md-10 offset-md-0`}>
             <div className="row">
               { faqsitems && faqsitems.map((({ question, answer }, index) => (
                 <div key={ question } className="col-lg-6 col-md-10">

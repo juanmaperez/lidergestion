@@ -383,3 +383,14 @@
   position: absolute;
   width: 100%;
 }
+
+
+.postImage {
+  &__wrapper {
+    position: relative;
+  }
+  &__pic {
+    position: absolute;
+    height: 100%;
+  }
+}

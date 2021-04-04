@@ -13,6 +13,7 @@ import Progress from '../sections/home1/Progress'
 import Faq from '../sections/home1/Faq'
 import Pricing from '../sections/home1/Pricing'
 import ContentRight from '../sections/home1/ContentRight'
+import CardPricing from '../sections/home1/CardPricing'
 
 const PageTemplate = ({ data, location}) => {
   const { wpPage } = data;
@@ -37,25 +38,27 @@ function renderComponent({ fieldGroupName, ...rest}, index, subject = null){
     case "page_Sections_Blocks_Companies": 
       return <Company {...rest} className="pt-13 pt-md-17 pt-lg-24 pb-13 pb-md-14 pb-lg-23" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Service":
-      return <ContentLeft {...rest} className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index}/>
+      return <ContentLeft {...rest} className="pt-21 pt-md-24 pt-lg-26 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Menublock":
       return <MenuBlocks {...rest} className="pt-lg-19 pt-10 pb-12 pb-lg-17" key={fieldGroupName + index}/>
     case "page_Sections_Blocks_Testimonials":
-      return <Testimonial { ...rest } className="pt-13 pt-md-18 pt-lg-24 pb-13 pb-md-19 pb-lg-28 position-relative" key={fieldGroupName + index}/>
+      return <Testimonial { ...rest } className="pt-13 pt-md-18 pt-lg-24 pb-13 pb-md-19 pb-lg-24 position-relative" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_LatestPosts": 
-			return <Blog { ...rest } className="pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
+			return <Blog { ...rest } className="pt-14 pt-md-18 pt-lg-26 pb-5 pb-md-7 pb-lg-10" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Contactform": 
 			return <ContactForm subject={subject } { ...rest } className="pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Textcontent":
-			return <TextContent {...rest} className="pt-21 pt-md-24 pt-lg-28 pb-15 pb-md-19 pb-lg-30" key={fieldGroupName + index}/>
+			return <TextContent {...rest} className="pt-20 pt-md-22 pt-lg-24 pb-15 pb-md-19 pb-lg-26" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Progress":
 			return <Progress {...rest } className="pt-21 pt-md-20 pt-lg-24 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Faqs":
-			return <Faq { ...rest } className="pt-21 pt-md-20 pt-lg-28 pb-13 pb-md-18 pb-lg-25" key={fieldGroupName + index} />
+			return <Faq { ...rest } className="pt-21 pt-md-20 pt-lg-26 pb-13 pb-md-18 pb-lg-25" key={fieldGroupName + index} />
     case "page_Sections_Blocks_Pricing":
       return <Pricing { ...rest } className="pt-13 pt-lg-25 pb-8 pb-lg-22" key={fieldGroupName + index} />
     case "page_Sections_Blocks_Contentright":
       return <ContentRight subject={subject } { ...rest } className="pt-21 pt-md-24 pt-lg-32 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index} />
+    case"page_Sections_Blocks_Cardpricing":
+      return <CardPricing subject={subject } { ...rest } className="pt-16 pt-md-20 pt-lg-23 pb-5 pb-md-11 pb-lg-19" key={fieldGroupName + index}/>
     default:
       return null
   }
@@ -179,6 +182,7 @@ export const query = graphql`
 							answer
 							question
 						}
+            fullwidth
 					}
           ... on WpPage_Sections_Blocks_Pricing {
             fieldGroupName
@@ -203,6 +207,20 @@ export const query = graphql`
             }
             short
             title
+          }
+          ... on WpPage_Sections_Blocks_Cardpricing {
+            fieldGroupName
+            title
+            subtitle
+            priceannotation
+            cards {
+              name
+              description
+              price
+              highlights {
+                title
+              }
+            }
           }
         }
       }

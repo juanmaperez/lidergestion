@@ -29,8 +29,8 @@ const Pricing = ({ className, ...rest }) => {
                 data-aos="fade-left"
                 data-aos-delay={500}
               >
-                <div className="btn-toggle-square active mx-3 price-deck-trigger rounded-10 bg-golden-yellow">
-                  { lists && lists.length > 1 && lists.map((list, index) => (
+                { lists > 1 && <div className="btn-toggle-square active mx-3 price-deck-trigger rounded-10 bg-golden-yellow">
+                  { lists.map((list, index) => (
                     <button
                       key={list.title}
                       className={`text-break btn-reset focus-reset ${plan ===
@@ -40,9 +40,9 @@ const Pricing = ({ className, ...rest }) => {
                       { list.title }
                     </button>
                   ))}
-                </div>
+                </div>}
               </div>
-            </div>
+             </div>
           </div>
         </div>
         {/* End Section Title */}
@@ -59,12 +59,12 @@ const Pricing = ({ className, ...rest }) => {
                     data-aos-delay={500}
                   >
                     <div className="row">
-                      <div className="col-lg-3">
+                      <div className="col-lg-2">
                         <div className="mb-5 mb-lg-0">
                           <h3 className="font-size-7">{name}</h3>
                         </div>
                       </div>
-                      <div className={ price ? "col-lg-3" : "col-lg-6"}>
+                      <div className={ price ? "col-lg-4" : "col-lg-7"}>
                         <div className="">
                           <ul className="list-unstyled font-size-6">
                             { highlights && highlights.map((highlight, index) => (
@@ -72,6 +72,7 @@ const Pricing = ({ className, ...rest }) => {
                                 className="heading-default-color mb-4"
                                 key={name + highlight.title + index}
                               >
+                                <i className="fa fa-check mr-4 text-dodger-blue-1" />
                                 {highlight.title}
                               </li>
                             ))}
