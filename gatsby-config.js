@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Líder Gestión`,
+    siteUrl: 'https://seguroslidergestion.com',
     description: `Los mejores seguros de coche, hogar y salud de la provincia de Sevilla.`,
     keywords: [`seguros baratos`, 'seguros de coche', 'seguros de automovil', 'seguros sevilla', 'seguro de coche sevilla']
   },
