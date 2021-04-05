@@ -96,30 +96,21 @@ const ContactForm = ({ title, subtitle, emails, contactdetails, phones, subject 
                 data-aos-once="true"
               >
                 <div className="row">
-                  { phones && (
-                    <div className="col-lg-12 mb-5 mb-lg-0">
-                      <div>
-                        <h4 className="font-size-6 text-default-color font-weight-normal mb-4">
-                          Llámanos
-                        </h4>
-                        { phones.map(({ phonenumber }) => (
-                          <a
-                            className="d-block font-size-6 font-weight-bold heading-default-color"
-                            href={`tel:${phonenumber}`}
-                          >
-                            { phonenumber }
-                          </a>
-                        ))}
-                        <p className="font-size-4 mt-4">Contáctanos por whatsapp si lo prefieres</p>
-                      </div>
+                  <div className="col-lg-12 mb-5 mb-lg-4 mt-lg-4 mt-5">
+                    <div className="p-1">
+                      <a 
+                        style={{lineHeight: '1.2em'}}
+                        className="d-block font-size-6 font-weight-bold heading-default-color" 
+                        href="https://www.google.com/maps/place/CORREDURIA+DE+SEGUROS+LIDERGESTION/@37.3995173,-6.0373372,17z/data=!4m12!1m6!3m5!1s0xd126d1e81c7783d:0x6dc61e8930284ebf!2sCORREDURIA+DE+SEGUROS+LIDERGESTION!8m2!3d37.3995173!4d-6.0351485!3m4!1s0xd126d1e81c7783d:0x6dc61e8930284ebf!8m2!3d37.3995173!4d-6.0351485" 
+                        target="_blank" rel="noopener noreferrer">
+                        Plaza Santa Ana Nº 11 LOCAL 5                           
+                        <br/>41900 Camas. Sevilla
+                      </a>
                     </div>
-                  )}
-                  {emails && (
-                    <div className="col-lg-12 mb-5 mb-lg-0">
-                      <div className="pl-1 pr-3">
-                        <h4 className="font-size-6 text-default-color font-weight-normal mb-4">
-                          Envía un email
-                        </h4>
+                  </div>
+                  { emails && (
+                    <div className="col-lg-12 mb-5 mb-lg-4">
+                      <div className="p-1">
                         { emails.map(({ address }) => (
                           <a
                             className="d-block font-size-6 font-weight-bold heading-default-color"
@@ -131,6 +122,26 @@ const ContactForm = ({ title, subtitle, emails, contactdetails, phones, subject 
                       </div>
                     </div>
                   )}
+                  { phones && (
+                    <div className="col-lg-12 mb-5 mb-lg-4">
+                      <div className="p-1">
+                        { phones.map(({ phonenumber }, index) => (
+                          <>
+                          { index > 0 && <span>&nbsp;-&nbsp;</span> }
+                          <a
+                            style={{lineHeight: '1.2em'}}
+                            className="font-size-6 font-weight-bold heading-default-color"
+                            href={`tel:${phonenumber}`}
+                          >
+                            { phonenumber }
+                          </a>
+                          </>
+                        ))}
+                        <p className="font-size-4 mt-0">Puedes contactarnos por Whatsapp si lo prefieres</p>
+                      </div>
+                    </div>
+                  )}
+                
                 </div>
               </div>
             )}

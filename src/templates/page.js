@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby"
+import Helmet from 'react-helmet'
 import PageWrapper from "../components/PageWrapper";
 import Hero from "../sections/home1/Hero";
 import Company from "../sections/home1/Companies";
@@ -20,9 +21,21 @@ const PageTemplate = ({ data, location}) => {
   const queryParams = new URLSearchParams(location.search)
   const subject = queryParams.get("subject")
   const { pathname } = location
-
+  const image = wpPage.sections.blocks && wpPage.sections.blocks.find(block => block.fieldGroupName === "page_Sections_Blocks_Hero")?.backgroundImage.sourceUrl 
+  console.log(wpPage.uri)
   return (
     <>
+    	<Helmet>
+				<meta charSet="utf-8" />
+				<title>{wpPage.seo.title}</title>
+				<link rel="canonical" href={`https://seguroslidergestion.com${wpPage.uri}`} />
+				<meta name="description" content={wpPage.seo.metaDesc} />
+        <meta property="og:url" content={`https://seguroslidergestion.com${wpPage.uri === '/home' ? '' : wpPage.uri}`} />
+        <meta property="og:type" content={wpPage.seo.title} />
+        <meta property="og:title" content={wpPage.seo.title} />
+        <meta property="og:description" content={wpPage.seo.metaDesc} />
+        <meta property="og:image" content={image} />
+			</Helmet>
       <PageWrapper>
         { wpPage.sections.blocks && wpPage.sections.blocks.map((block, index) => renderComponent(block, index, subject || pathname)) }
       </PageWrapper>
@@ -67,6 +80,12 @@ function renderComponent({ fieldGroupName, ...rest}, index, subject = null){
 export const query = graphql`
   query($id: String) {
     wpPage(id: { eq: $id}){
+      seo {
+        title
+        metaDesc
+      }
+      uri
+      title
       sections {
         blocks {
           ... on WpPage_Sections_Blocks_Hero {

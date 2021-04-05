@@ -1,4 +1,5 @@
 import React from "react";
+import Helmet from 'react-helmet'
 import { graphql, Link } from "gatsby";
 import Hero from '../sections/home1/Hero'
 import imgB3 from "../assets/image/home-1/png/post-thumbnails-3.png";
@@ -39,6 +40,12 @@ const Blog = ({ data, pageContext }) => {
 
   return (
     <>
+			<Helmet>
+				<meta charSet="utf-8" />
+				<title>Blog de seguros</title>
+				<link rel="canonical" href={`https://seguroslidergestion.com/blog`} />
+				<meta name="description" content="Blog de seguros Lider Gestión. Todo lo que necesitas saber sobre seguros y la información para contratar el seguro que necesitas" />
+			</Helmet>
 			<Hero backgroundImage={{sourceUrl:cover}} title="Blog de seguros" subtitle="Los mejores artículos sobre seguros" form={false}/>
       <div className={`${!isLast || !isFirst ? "pb-3 pb-md-7 pb-lg-16": "pb-13 pb-md-17 pb-lg-26"} pt-14 pt-md-18 pt-lg-27`}>
         <div className="container">
