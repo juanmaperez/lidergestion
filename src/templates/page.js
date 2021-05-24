@@ -61,9 +61,9 @@ function renderComponent({ fieldGroupName, ...rest}, index, subject = null){
 		case "page_Sections_Blocks_Contactform": 
 			return <ContactForm subject={subject } { ...rest } className="pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Textcontent":
-			return <TextContent {...rest} className="pt-20 pt-md-22 pt-lg-24 pb-15 pb-md-19 pb-lg-26" key={fieldGroupName + index}/>
+			return <TextContent {...rest} className="pt-14 pt-md-16 pt-lg-6 pb-14 pb-md-16 pb-lg-6" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Progress":
-			return <Progress {...rest } className="pt-21 pt-md-20 pt-lg-24 pb-15 pb-md-19 pb-lg-24" key={fieldGroupName + index}/>
+			return <Progress {...rest } className="pt-14 pt-md-16 pt-lg-18 pb-14 pb-md-16 pb-lg-18" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Faqs":
 			return <Faq { ...rest } className="pt-21 pt-md-20 pt-lg-26 pb-13 pb-md-18 pb-lg-25" key={fieldGroupName + index} />
     case "page_Sections_Blocks_Pricing":

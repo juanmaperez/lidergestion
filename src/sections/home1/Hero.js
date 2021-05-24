@@ -6,11 +6,12 @@ import { HeroForm } from './HeroForm'
 
 const Hero = ({ className, ...rest }) => {
   const { title, subtitle, textColor, backgroundImage, form } = rest
+
   return (
     <div className={className}>
       <div className="pt-15 pt-lg-20">
         <div
-          className="bg-img-1 bg-images pt-18 pt-lg-25 pt-xl-33 mx-lg-13 mx-xl-15"
+          className="bg-img-1 bg-images pt-18 pt-lg-25 pt-xl-33 mx-lg-13 mx-xl-15 bg-gradient-2"
           style={{ background: backgroundImage ? `url(${backgroundImage.sourceUrl})` : '#000', backgroundPosition: 'bottom center', backgroundSize: 'cover'}}
         >
           <div className="container">
@@ -30,7 +31,7 @@ const Hero = ({ className, ...rest }) => {
               </div>
             </div>
             <div className="row">
-              <div className="col-xl-12">
+              <div className="col-xl-12 p-0">
                 <div className="mt-13 mt-lg-18 mt-xl-23 w-100 shadow-1">
                   { form && <HeroForm />}
                 </div>

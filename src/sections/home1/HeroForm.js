@@ -133,6 +133,7 @@ export function HeroForm () {
 							{/* <!-- .select-city starts --> */}
 							<div className="form-group border-top-dotted mb-0 w-100 w-lg-50 position-relative pt-5 pb-6 pt-lg-9 pb-lg-10 py-lg-0 d-flex align-items-center">
 								<Select
+									placeholder="Elige un seguro"
 									instanceId="insurance"
 									inputId="insurance"
 									value={values.insurance}
