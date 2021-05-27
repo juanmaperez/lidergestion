@@ -1,8 +1,12 @@
 // Common CSS
 .bg-images{
-    background-position: center;
+    background-position: bottom center !important;
     background-repeat: no-repeat;
     background-size: cover;
+
+    &.reduced{
+        background-position: center center !important;
+    }
 
     @media (max-width: 420px) {
         &.reduced{
