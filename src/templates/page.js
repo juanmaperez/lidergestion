@@ -21,8 +21,8 @@ const PageTemplate = ({ data, location}) => {
   const queryParams = new URLSearchParams(location.search)
   const subject = queryParams.get("subject")
   const { pathname } = location
-  const image = wpPage.sections.blocks && wpPage.sections.blocks.find(block => block.fieldGroupName === "page_Sections_Blocks_Hero")?.backgroundImage.sourceUrl 
-  console.log(wpPage.uri)
+  const block = wpPage.sections.blocks && wpPage.sections.blocks.find(block => block.fieldGroupName === "page_Sections_Blocks_Hero")
+  const image = block && block.backgroundImage ? block.backgroundImage.sourceUrl : null
   return (
     <>
     	<Helmet>

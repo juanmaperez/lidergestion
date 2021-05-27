@@ -5,10 +5,16 @@
     background-size: cover;
 
     @media (max-width: 420px) {
-        background-size: cover !important;
+        &.reduced{
+            background-size: 140% !important;
+            background-position: top center !important;
+        }
+        background-size: cover;
         background-position: bottom center !important;
         background-repeat: no-repeat !important;
     }
+
+ 
 }
 
 // Background Images
