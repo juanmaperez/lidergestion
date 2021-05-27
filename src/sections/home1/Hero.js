@@ -8,6 +8,8 @@ import { HeroForm } from './HeroForm'
 const Hero = ({ className, ...rest }) => {
   const { title, subtitle, textColor, backgroundImage, form } = rest
 
+  console.log(backgroundImage)
+
   return (
     <div className={className}>
       <div className="pt-15 pt-lg-20">
