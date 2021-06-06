@@ -6,11 +6,13 @@
 
     &.reduced{
         background-position: center center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat;
     }
 
     @media (max-width: 420px) {
         &.reduced{
-            background-size: 150% !important;
+            background-size: 162% !important;
             background-position: top center !important;
         }
         background-size: cover;
