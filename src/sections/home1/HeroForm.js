@@ -30,12 +30,13 @@ const sendEmail = gql`
 
 const defaultOptions = [
   { value: "Seguro de coche", label: "Seguro de coche" },
+  { value: "Seguro de coche", label: "Seguro de moto" },
   { value: "Seguro de salud", label: "Seguro de salud" },
   { value: "Seguro de vida", label: "Seguro de vida" },
   { value: "Seguro de hogar", label: "Seguro de hogar" },
   { value: "Seguro de viajes", label: "Seguro de viajes" },
-  { value: "Seguro de impago", label: "Seguro de impago" },
-	{ value: "Otros", label: "Otros" },
+  { value: "Seguro de impago", label: "Seguro de comercio" },
+	{ value: "Otros", label: "Otros seguros" },
 ];
 
 	

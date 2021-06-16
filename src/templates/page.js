@@ -59,9 +59,9 @@ function renderComponent({ fieldGroupName, ...rest}, index, subject = null){
 		case "page_Sections_Blocks_LatestPosts": 
 			return <Blog { ...rest } className="pt-14 pt-md-18 pt-lg-26 pb-5 pb-md-7 pb-lg-10" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Contactform": 
-			return <ContactForm subject={subject } { ...rest } className="pt-14 pt-md-18 pt-lg-27 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
+			return <ContactForm subject={subject} { ...rest } className="d-flex align-items-center pt-14 pt-md-18 pt-lg-24 pb-13 pb-md-17 pb-lg-26" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Textcontent":
-			return <TextContent {...rest} className="pt-14 pt-md-16 pt-lg-6 pb-14 pb-md-16 pb-lg-6" key={fieldGroupName + index}/>
+			return <TextContent {...rest} className="pt-24 pt-md-22 pt-lg-28 pb-16 pb-md-10 pb-lg-16" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Progress":
 			return <Progress {...rest } className="pt-14 pt-md-16 pt-lg-18 pb-14 pb-md-16 pb-lg-18" key={fieldGroupName + index}/>
 		case "page_Sections_Blocks_Faqs":

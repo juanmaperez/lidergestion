@@ -29,7 +29,7 @@ const sendEmail = gql`
 	}
 }`
 
-const ContactForm = ({ title, subtitle, emails, contactdetails, phones, subject }) => {
+const ContactForm = ({ className, title, subtitle, emails, contactdetails, phones, subject }) => {
   const [sent, setSent] = React.useState(false)
 	const [error, setError] = React.useState(null)
 	const [SEND_EMAIL, {loading}] = useMutation(sendEmail)
@@ -63,7 +63,7 @@ const ContactForm = ({ title, subtitle, emails, contactdetails, phones, subject 
 	}
 
   return (
-    <div className="min-height-100vh d-flex align-items-center pt-23 pt-md-26 pt-lg-30 pb-8 pb-md-12 pb-lg-23">
+    <div className={className}>
       <div className="container">
         {/* Section Title */}
         <div className="row justify-content-center">
@@ -257,7 +257,7 @@ const ContactForm = ({ title, subtitle, emails, contactdetails, phones, subject 
                 )}
               </Formik>
               {(error || sent) && (
-                <div className={`${error ? 'alert-danger': 'alert-success'} alert header__alert mt-2 p-8`}>
+                <div className={`${error ? 'alert-danger': 'alert-success'} alert header__alert mt-2 p-8 max-w-536 mx-auto`}>
                   { error || sent }
                 </div>
               )}
