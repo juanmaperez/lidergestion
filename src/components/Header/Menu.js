@@ -160,6 +160,7 @@ const Menu = () => {
             </span>
           </a>
         </li>
+        {/* 
         <li>
           <a
             className="nav-link"
@@ -184,7 +185,8 @@ const Menu = () => {
               <i className="whatsapp icon icon-phone-2 font-weight-bold icon-bg-circle bg-green-dark"></i>
             </span>
           </a>
-        </li>
+        </li> 
+        */}
       </ul>
     </>
   );
