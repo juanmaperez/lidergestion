@@ -1,0 +1,18 @@
+{
+  "main.js": "render-page.js",
+  "render-page.js.map": "render-page.js.map",
+  "static/404-error-img.png": "static/404-error-img-a3896d7ed3ac8c2c6b1a2368b1855afa.png",
+  "static/CircularStd-Bold.ttf": "static/CircularStd-Bold-723832f6d0d253821c078ca2876d89b7.ttf",
+  "static/CircularStd-BoldItalic.ttf": "static/CircularStd-BoldItalic-4c56e210d1ce4671d458e868869e40f4.ttf",
+  "static/CircularStd-Book.ttf": "static/CircularStd-Book-482742800a2eefeb50668c8943204304.ttf",
+  "static/CircularStd-BookItalic.ttf": "static/CircularStd-BookItalic-bc686b021b3fda56b8a1d08333a92bad.ttf",
+  "static/CircularStd-Medium.ttf": "static/CircularStd-Medium-b547df3f894204b692a0a6d44e6fda43.ttf",
+  "static/avasta.ttf": "static/avasta-d9a081013ad1508ed10ea10615300836.ttf",
+  "static/blog-cover.jpg": "static/blog-cover-1b5d0f454f30c76f69e76333a2adc72f.jpg",
+  "static/dot-bg.png": "static/dot-bg-1696cf51bade518ac52690ae60b61673.png",
+  "static/fa-brands-400.ttf": "static/fa-brands-400-70150a2b3a50f84aff707541dc66edf7.ttf",
+  "static/fa-regular-400.ttf": "static/fa-regular-400-a3b4cd30799e10f5fbc2e220fd2f7098.ttf",
+  "static/fa-solid-900.ttf": "static/fa-solid-900-9b4d14a5508e9cc4ca886daa383451f8.ttf",
+  "static/logo_lidergestion-200.svg": "static/logo_lidergestion-200-6848e19bccd5225a747478e0b2a05fcc.svg",
+  "static/payment-2.png": "static/payment-2-66bcc856fa94c4309f15c6ec1cce58a3.png"
+}
