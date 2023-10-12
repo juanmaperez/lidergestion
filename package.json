@@ -62,9 +62,14 @@
     "clean": "gatsby clean",
     "develop": "gatsby develop",
     "serve": "gatsby serve",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\""
+    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"src/**/*.js\"",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+  },
+  "engines": {
+    "node": "12.18.4"
   },
   "devDependencies": {
+    "gh-pages": "5.0.0",
     "prettier": "^2.2.1"
   }
 }
