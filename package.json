@@ -66,10 +66,11 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public"
   },
   "engines": {
-    "node": "12.18.4"
+    "node": ">=18"
   },
   "devDependencies": {
     "gh-pages": "5.0.0",
     "prettier": "^2.2.1"
   }
+
 }
